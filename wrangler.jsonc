@@ -1,0 +1,16 @@
+{
+  // Cloudflare Workers (static assets) deployment.
+  // `npx wrangler deploy` runs the build below, then uploads dist/client.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "automationgod",
+  "compatibility_date": "2026-11-01",
+  "build": {
+    "command": "npm run build:static"
+  },
+  "assets": {
+    "directory": "./dist/client",
+    // /services serves services.html; unknown paths get 404.html.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

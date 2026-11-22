@@ -85,3 +85,6 @@ pids
 .airo/qa-runs/
 .airo/qa-report.json
 .airo/security-report.json
+
+# Cloudflare Wrangler
+.wrangler
