@@ -1,0 +1,20 @@
+{
+  "pages/home/hero": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2282887302"
+  },
+  "pages/home/tools-bg": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2239914665"
+  },
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/7effdd60-bf15-407e-8c86-4d1c500bc49e/session/99681ba4-b8a0-47c0-a6a7-740dc2155f07/horizontal-transparent-a45e8e34-dcb2-46ef-8b90-ce4a92152c1d/logo-logo.png",
+    "darkSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/7effdd60-bf15-407e-8c86-4d1c500bc49e/session/99681ba4-b8a0-47c0-a6a7-740dc2155f07/horizontal-transparent-a45e8e34-dcb2-46ef-8b90-ce4a92152c1d/logo-logo.png"
+  },
+  "logo/favicon": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/7effdd60-bf15-407e-8c86-4d1c500bc49e/session/78d33544-7a31-4648-b090-4f73ef55f27d/favicon-transparent-1ad334ba-2b73-49f2-88b4-432b3e50ddae/logo-logo.png",
+    "darkSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/7effdd60-bf15-407e-8c86-4d1c500bc49e/session/78d33544-7a31-4648-b090-4f73ef55f27d/favicon-transparent-1ad334ba-2b73-49f2-88b4-432b3e50ddae/logo-logo.png"
+  }
+}

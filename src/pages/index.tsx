@@ -1,0 +1,337 @@
+import { Helmet } from '@dr.pogodin/react-helmet';
+import { Link } from 'react-router';
+import { motion, useInView } from 'motion/react';
+import { useRef, useEffect, useState } from 'react';
+import { home } from 'virtual:content';
+
+// ── Animated counter hook ─────────────────────────────────────────────────────
+function useCounter(target: string, inView: boolean) {
+  const [display, setDisplay] = useState('0');
+  useEffect(() => {
+    if (!inView) return;
+    const raw = target.replace(/[^0-9.]/g, '');
+    const num = parseFloat(raw);
+    if (isNaN(num)) { setDisplay(target); return; }
+    const prefix = target.match(/^[^0-9]*/)?.[0] ?? '';
+    const suffix = target.match(/[^0-9.]*$/)?.[0] ?? '';
+    const duration = 1600;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = eased * num;
+      const formatted = num >= 100
+        ? Math.round(current).toLocaleString()
+        : current >= 10
+          ? current.toFixed(1).replace(/\.0$/, '')
+          : current.toFixed(1);
+      setDisplay(`${prefix}${formatted}${suffix}`);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [inView, target]);
+  return display;
+}
+
+// ── Grid background ───────────────────────────────────────────────────────────
+function GridBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(var(--background))]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-transparent to-[hsl(var(--background))]" />
+    </div>
+  );
+}
+
+function CyanDivider() {
+  return <div className="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-40" />;
+}
+
+// ── Hero stat with counter (self-contained, no content props) ─────────────────
+function HeroStatItem({ idx }: { idx: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const stat = home.hero.stats[idx];
+  const display = useCounter(stat.value, inView);
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.6 + idx * 0.1, ease: 'easeOut' as const }}
+      className="flex flex-col items-center gap-1"
+    >
+      <span className="font-heading text-3xl md:text-4xl font-black text-primary tracking-tight">
+        {display}
+      </span>
+      <span className="text-xs text-[hsl(var(--muted-foreground))] tracking-widest uppercase font-mono">
+        {stat.label}
+      </span>
+    </motion.div>
+  );
+}
+
+// ── Result stat with counter (self-contained) ─────────────────────────────────
+function ResultStatItem({ idx }: { idx: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const stat = home.results.stats[idx];
+  const display = useCounter(stat.value, inView);
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: idx * 0.12, ease: 'easeOut' as const }}
+      className="flex flex-col gap-2 p-6 border border-[hsl(var(--border))] rounded-lg bg-[hsl(var(--card))]"
+    >
+      <span className="font-heading text-5xl md:text-6xl font-black text-primary leading-none">
+        {display}
+      </span>
+      <span className="text-sm font-medium text-white">{stat.label}</span>
+      <span className="text-xs text-[hsl(var(--muted-foreground))] font-mono tracking-widest uppercase mt-1">
+        {stat.industry}
+      </span>
+    </motion.div>
+  );
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const },
+  }),
+};
+
+export default function HomePage() {
+  return (
+    <>
+      <Helmet>
+        <title>Automation God — AI Automation Systems for Canadian SMBs | automationgod.ca</title>
+        <meta name="description" content="Automation God builds AI-powered automation systems that cut costs, eliminate manual work, and scale Canadian SMBs without adding headcount. Based in Waterloo, ON." />
+        <meta property="og:title" content="Automation God — AI Automation Systems for Canadian SMBs" />
+        <meta property="og:description" content="Cut costs, eliminate manual work, and scale without adding headcount. Real automation systems for real Canadian businesses." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://automationgod.ca" />
+        <meta property="og:image" content="https://automationgod.ca/og-image.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://automationgod.ca/og-image.svg" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'ProfessionalService',
+              '@id': 'https://automationgod.ca/#organization',
+              name: 'Automation God',
+              url: 'https://automationgod.ca',
+              logo: 'https://automationgod.ca/og-image.svg',
+              description: 'AI-powered automation systems for Canadian small and medium businesses. We eliminate manual work, cut operational costs, and scale your business without adding headcount.',
+              areaServed: { '@type': 'Country', name: 'Canada' },
+              address: { '@type': 'PostalAddress', addressLocality: 'Waterloo', addressRegion: 'ON', addressCountry: 'CA' },
+              knowsAbout: ['Business Process Automation', 'AI Automation', 'Workflow Automation', 'Lead Generation Automation', 'CRM Automation'],
+            },
+            { '@type': 'WebSite', '@id': 'https://automationgod.ca/#website', url: 'https://automationgod.ca', name: 'Automation God', publisher: { '@id': 'https://automationgod.ca/#organization' } },
+            { '@type': 'WebPage', '@id': 'https://automationgod.ca/#webpage', url: 'https://automationgod.ca', name: 'Automation God — AI Automation Systems for Canadian SMBs', isPartOf: { '@id': 'https://automationgod.ca/#website' }, about: { '@id': 'https://automationgod.ca/#organization' } },
+          ],
+        }).replace(/</g, '\u003c')}</script>
+      </Helmet>
+
+      <main>
+        {/* ── HERO ─────────────────────────────────────────────────────────── */}
+        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+          <GridBackground />
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <img src="/airo-assets/images/pages/home/hero" alt="" className="w-full h-full object-cover opacity-10" loading="eager" fetchPriority="high" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))]/60 via-transparent to-[hsl(var(--background))]" />
+          </div>
+
+          <div className="relative container mx-auto px-6 py-32">
+            <div className="max-w-4xl">
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: 'easeOut' as const }} className="flex items-center gap-3 mb-8">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-mono tracking-widest text-primary uppercase">AI & Automation Systems</span>
+              </motion.div>
+
+              <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }} className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-white mb-4">
+                {home.hero.headline}
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' as const }} className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-primary mb-8">
+                {home.hero.headlineAccent}
+              </motion.p>
+
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' as const }} className="text-lg md:text-xl text-[hsl(var(--muted-foreground))] max-w-2xl leading-relaxed mb-10">
+                {home.hero.subheadline}
+              </motion.p>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' as const }} className="flex flex-wrap gap-4 mb-20">
+                <Link to="/book" className="px-8 py-4 font-semibold text-sm tracking-wide text-[hsl(var(--background))] bg-primary rounded transition-all duration-200 hover:brightness-110 hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.4)]">
+                  {home.hero.ctaPrimary}
+                </Link>
+                <Link to="/tools" className="px-8 py-4 font-semibold text-sm tracking-wide text-white border border-[hsl(var(--border))] rounded transition-all duration-200 hover:border-primary hover:text-primary">
+                  {home.hero.ctaSecondary}
+                </Link>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[hsl(var(--border))]">
+                <HeroStatItem idx={0} />
+                <HeroStatItem idx={1} />
+                <HeroStatItem idx={2} />
+                <HeroStatItem idx={3} />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <CyanDivider />
+
+        {/* ── SERVICES ─────────────────────────────────────────────────────── */}
+        <section className="py-xxl bg-[hsl(var(--background))]">
+          <div className="container mx-auto px-6">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-14">
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-mono tracking-widest text-primary uppercase">{home.services.label}</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                {home.services.headline}
+              </motion.h2>
+              <motion.p variants={fadeUp} custom={2} className="text-[hsl(var(--muted-foreground))] max-w-xl text-lg">
+                {home.services.subheadline}
+              </motion.p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {home.services.items.filter(s => s.size === 'large').map((svc, i) => (
+                <motion.div key={svc.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="md:col-span-2 group relative p-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="w-10 h-10 rounded border border-primary/30 flex items-center justify-center mb-6">
+                    <div className="w-3 h-3 rounded-sm bg-primary" />
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold text-white mb-3 tracking-tight">{svc.title}</h3>
+                  <p className="text-[hsl(var(--muted-foreground))] text-base leading-relaxed">{svc.outcome}</p>
+                </motion.div>
+              ))}
+
+              {home.services.items.filter(s => s.size === 'small').map((svc, i) => (
+                <motion.div key={svc.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="group relative p-6 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="w-8 h-8 rounded border border-primary/30 flex items-center justify-center mb-4">
+                    <div className="w-2 h-2 rounded-sm bg-primary" />
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-white mb-2 tracking-tight">{svc.title}</h3>
+                  <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.outcome}</p>
+                </motion.div>
+              ))}
+
+              {home.services.items.filter(s => s.size === 'medium').map((svc, i) => (
+                <motion.div key={svc.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 + i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="group relative p-7 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="w-9 h-9 rounded border border-primary/30 flex items-center justify-center mb-5">
+                    <div className="w-2.5 h-2.5 rounded-sm bg-primary" />
+                  </div>
+                  <h3 className="font-heading text-xl font-bold text-white mb-2 tracking-tight">{svc.title}</h3>
+                  <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.outcome}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CyanDivider />
+
+        {/* ── RESULTS ──────────────────────────────────────────────────────── */}
+        <section className="py-xxl bg-[hsl(var(--secondary))]">
+          <div className="container mx-auto px-6">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-14">
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-mono tracking-widest text-primary uppercase">{home.results.label}</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight">
+                {home.results.headline}
+              </motion.h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <ResultStatItem idx={0} />
+              <ResultStatItem idx={1} />
+              <ResultStatItem idx={2} />
+              <ResultStatItem idx={3} />
+            </div>
+          </div>
+        </section>
+
+        <CyanDivider />
+
+        {/* ── TOOLS ────────────────────────────────────────────────────────── */}
+        <section className="py-xxl bg-[hsl(var(--background))]">
+          <div className="container mx-auto px-6">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-14">
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-mono tracking-widest text-primary uppercase">{home.tools.label}</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight">
+                {home.tools.headline}
+              </motion.h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {home.tools.items.map((tool, i) => (
+                <motion.div key={tool.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="group relative p-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="font-heading text-xl font-bold text-white tracking-tight">{tool.name}</h3>
+                    <span className="text-xs font-mono tracking-widest text-primary border border-primary/30 rounded px-2 py-1 uppercase">{tool.tag}</span>
+                  </div>
+                  <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed mb-6">{tool.description}</p>
+                  <Link to="/tools" className="text-sm font-semibold text-primary tracking-wide hover:underline underline-offset-4 transition-all">
+                    Get Access →
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CyanDivider />
+
+        {/* ── CTA ──────────────────────────────────────────────────────────── */}
+        <section className="py-xxl bg-[hsl(var(--secondary))]">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: 'easeOut' as const }} className="max-w-xl">
+                <div className="h-px w-16 bg-primary mb-6" />
+                <h2 className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+                  {home.cta.headline}
+                </h2>
+                <p className="text-[hsl(var(--muted-foreground))] text-lg leading-relaxed">
+                  {home.cta.subheadline}
+                </p>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' as const }} className="flex flex-col items-start lg:items-end gap-4 shrink-0">
+                <Link to="/book" className="px-10 py-5 font-semibold text-base tracking-wide text-[hsl(var(--background))] bg-primary rounded transition-all duration-200 hover:brightness-110 hover:shadow-[0_0_40px_hsl(var(--cyan-glow)/0.5)] whitespace-nowrap">
+                  {home.cta.ctaLabel}
+                </Link>
+                <span className="text-xs text-[hsl(var(--muted-foreground))] font-mono tracking-wide">
+                  {home.cta.note}
+                </span>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

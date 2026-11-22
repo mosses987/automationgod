@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Free 30-minute call",
+    "headline": "Let's map out your automation.",
+    "subheadline": "Tell us about your business and we'll show you exactly where automation can save you time and money. No pitch. No fluff. Just a clear plan."
+  },
+  "whatToExpect": {
+    "heading": "What to expect",
+    "items": [
+      {
+        "id": "e1",
+        "title": "Audit your current workflow",
+        "description": "We'll identify where your team is losing the most time to manual, repetitive work."
+      },
+      {
+        "id": "e2",
+        "title": "Map your automation opportunities",
+        "description": "You'll leave with a prioritized list of automations ranked by ROI and implementation speed."
+      },
+      {
+        "id": "e3",
+        "title": "Get a straight answer on fit",
+        "description": "If we're not the right solution for your situation, we'll tell you. No pressure, no follow-up spam."
+      }
+    ]
+  },
+  "form": {
+    "heading": "Book your call",
+    "subheading": "Fill in the details below and we'll confirm a time within one business day.",
+    "fields": {
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "you@company.com",
+      "companyPlaceholder": "Company name",
+      "rolePlaceholder": "e.g. Founder, Operations Manager",
+      "teamSizeLabel": "Team size",
+      "goalLabel": "What's your biggest operational bottleneck right now?",
+      "goalPlaceholder": "e.g. We spend 20 hours a week manually updating spreadsheets..."
+    },
+    "submitText": "Request my discovery call",
+    "submittingText": "Sending...",
+    "successHeading": "You're booked in.",
+    "successMessage": "We'll confirm your time slot within one business day. Check your inbox — and your spam folder just in case.",
+    "errorMessage": "Something went wrong. Please try again or email us directly."
+  },
+  "trust": [
+    {
+      "id": "tr1",
+      "stat": "< 1 business day",
+      "label": "Response time"
+    },
+    {
+      "id": "tr2",
+      "stat": "100%",
+      "label": "No-obligation call"
+    },
+    {
+      "id": "tr3",
+      "stat": "30 min",
+      "label": "Focused, no fluff"
+    }
+  ]
+}

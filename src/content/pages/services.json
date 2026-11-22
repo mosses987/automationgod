@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "title": "Services — Automation God",
+    "description": "AI-powered automation services for SMBs. Workflow automation, lead generation, data pipelines, AI support, and process consulting."
+  },
+  "hero": {
+    "label": "What We Do",
+    "headline": "We Build Systems That Work While You Sleep.",
+    "subheadline": "Every service we offer is designed around one goal: eliminate the manual work that's slowing your business down and replace it with intelligent automation."
+  },
+  "services": [
+    {
+      "id": "svc-workflow",
+      "slug": "ai-workflow-automation",
+      "title": "AI Workflow Automation",
+      "tagline": "Replace repetitive tasks with intelligent, self-running systems.",
+      "description": "We map your existing processes, identify every manual touchpoint, and replace them with AI-driven workflows that run 24/7 without human intervention. From document processing to multi-step approvals, we automate the full chain.",
+      "useCases": [
+        "Invoice processing & approval routing",
+        "Employee onboarding & offboarding",
+        "Inventory management & reorder triggers",
+        "Report generation & distribution",
+        "Multi-system data synchronization"
+      ],
+      "outcome": "Average 60% reduction in process time",
+      "icon": "zap"
+    },
+    {
+      "id": "svc-leads",
+      "slug": "lead-generation-systems",
+      "title": "Lead Generation Systems",
+      "tagline": "Automated outreach, qualification, and follow-up — 24/7.",
+      "description": "We build end-to-end lead generation machines: automated prospecting, AI-powered qualification, personalized outreach sequences, and CRM sync. Your sales team only talks to leads that are ready to buy.",
+      "useCases": [
+        "LinkedIn & email outreach automation",
+        "AI lead scoring & qualification",
+        "Automated follow-up sequences",
+        "CRM enrichment & data hygiene",
+        "Meeting booking automation"
+      ],
+      "outcome": "3.2x average increase in qualified pipeline",
+      "icon": "target"
+    },
+    {
+      "id": "svc-data",
+      "slug": "data-pipeline-automation",
+      "title": "Data Pipeline Automation",
+      "tagline": "Connect your tools. Eliminate manual data entry forever.",
+      "description": "We build real-time data pipelines that connect your entire tech stack — CRM, ERP, marketing tools, databases, and more. Data flows automatically, stays clean, and is always where it needs to be.",
+      "useCases": [
+        "CRM ↔ ERP synchronization",
+        "Marketing attribution data pipelines",
+        "Financial reporting automation",
+        "Customer data platform (CDP) builds",
+        "API integration & webhook management"
+      ],
+      "outcome": "89% average reduction in manual data entry",
+      "icon": "database"
+    },
+    {
+      "id": "svc-support",
+      "slug": "ai-customer-support",
+      "title": "AI Customer Support",
+      "tagline": "Handle 80% of support tickets without a human.",
+      "description": "We train AI on your knowledge base, products, and policies to handle the majority of customer inquiries automatically. Complex issues escalate to your team with full context — so they can resolve faster.",
+      "useCases": [
+        "AI chatbot trained on your knowledge base",
+        "Automated ticket triage & routing",
+        "Order status & tracking automation",
+        "FAQ & policy response automation",
+        "Escalation workflows with context handoff"
+      ],
+      "outcome": "80% ticket deflection rate on average",
+      "icon": "message-circle"
+    },
+    {
+      "id": "svc-consulting",
+      "slug": "process-consulting",
+      "title": "Process Consulting",
+      "tagline": "Map, audit, and redesign your workflows for maximum efficiency.",
+      "description": "Before we automate anything, we make sure we're automating the right things. Our process consulting engagement maps your entire operation, identifies the highest-ROI automation opportunities, and delivers a prioritized roadmap.",
+      "useCases": [
+        "Full operational workflow audit",
+        "Automation opportunity scoring",
+        "ROI modelling & business case",
+        "Technology stack assessment",
+        "90-day automation roadmap"
+      ],
+      "outcome": "Clients identify avg. $180K/yr in automation savings",
+      "icon": "map"
+    }
+  ],
+  "pricing": {
+    "label": "Pricing",
+    "headline": "Transparent Pricing. Real ROI.",
+    "subheadline": "Every engagement is scoped to your specific needs. These tiers give you a starting point.",
+    "tiers": [
+      {
+        "id": "tier-starter",
+        "name": "Starter",
+        "price": "$2,500",
+        "period": "one-time",
+        "tagline": "One automation. Proven results.",
+        "description": "Perfect for businesses that want to test automation with a single high-impact workflow.",
+        "features": [
+          "1 custom automation workflow",
+          "Up to 3 tool integrations",
+          "30-day support & monitoring",
+          "Documentation & handoff",
+          "ROI tracking setup"
+        ],
+        "cta": "Get Started",
+        "highlighted": false
+      },
+      {
+        "id": "tier-growth",
+        "name": "Growth",
+        "price": "$7,500",
+        "period": "one-time",
+        "tagline": "Full automation stack for growing teams.",
+        "description": "For businesses ready to automate multiple workflows and connect their entire tech stack.",
+        "features": [
+          "Up to 5 custom automation workflows",
+          "Unlimited tool integrations",
+          "AI model training & deployment",
+          "60-day support & optimization",
+          "Monthly performance reports",
+          "Priority Slack support"
+        ],
+        "cta": "Most Popular",
+        "highlighted": true
+      },
+      {
+        "id": "tier-enterprise",
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "engagement",
+        "tagline": "Full-scale automation transformation.",
+        "description": "For organizations ready to automate at scale across departments and systems.",
+        "features": [
+          "Unlimited automation workflows",
+          "Dedicated automation engineer",
+          "Full process consulting engagement",
+          "Custom AI model development",
+          "Ongoing retainer & optimization",
+          "SLA-backed support"
+        ],
+        "cta": "Book a Call",
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Not Sure Where to Start?",
+    "subheadline": "Book a free 30-minute discovery call. We'll identify your top automation opportunity and give you a clear ROI estimate — no commitment required.",
+    "ctaLabel": "Book a Free Discovery Call"
+  }
+}

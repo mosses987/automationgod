@@ -1,0 +1,136 @@
+{
+  "hero": {
+    "headline": "Automate Everything.",
+    "headlineAccent": "Dominate Your Industry.",
+    "subheadline": "We build AI-powered automation systems that cut costs, eliminate manual work, and scale your business — without adding headcount.",
+    "ctaPrimary": "Book a Free Call",
+    "ctaSecondary": "See Our Tools",
+    "stats": [
+      {
+        "id": "stat-1",
+        "value": "10x",
+        "label": "Faster Workflows"
+      },
+      {
+        "id": "stat-2",
+        "value": "500+",
+        "label": "Businesses Automated"
+      },
+      {
+        "id": "stat-3",
+        "value": "40%",
+        "label": "Avg. Cost Reduction"
+      },
+      {
+        "id": "stat-4",
+        "value": "72h",
+        "label": "Avg. Time to Deploy"
+      }
+    ]
+  },
+  "services": {
+    "label": "What We Build",
+    "headline": "Automation That Moves the Needle",
+    "subheadline": "Not templates. Not demos. Real systems that replace manual work and generate measurable ROI.",
+    "items": [
+      {
+        "id": "svc-1",
+        "title": "AI Workflow Automation",
+        "outcome": "Eliminate repetitive tasks across your entire operation",
+        "size": "large"
+      },
+      {
+        "id": "svc-2",
+        "title": "Lead Generation Systems",
+        "outcome": "Automated outreach, follow-up, and qualification — 24/7",
+        "size": "small"
+      },
+      {
+        "id": "svc-3",
+        "title": "Data Pipeline Automation",
+        "outcome": "Connect your tools and eliminate manual data entry forever",
+        "size": "small"
+      },
+      {
+        "id": "svc-4",
+        "title": "AI Customer Support",
+        "outcome": "Handle 80% of support tickets without a human",
+        "size": "medium"
+      },
+      {
+        "id": "svc-5",
+        "title": "Process Consulting",
+        "outcome": "Map, audit, and redesign your workflows for maximum efficiency",
+        "size": "medium"
+      }
+    ]
+  },
+  "tools": {
+    "label": "Our Tools",
+    "headline": "Built for Results. Ready to Deploy.",
+    "items": [
+      {
+        "id": "tool-1",
+        "name": "FlowForge",
+        "description": "Visual workflow builder with 200+ integrations. Connect any tool, automate any process.",
+        "tag": "Workflow"
+      },
+      {
+        "id": "tool-2",
+        "name": "LeadBot Pro",
+        "description": "AI-powered lead qualification and outreach automation for B2B sales teams.",
+        "tag": "Sales"
+      },
+      {
+        "id": "tool-3",
+        "name": "DataSync AI",
+        "description": "Real-time data synchronization across your entire tech stack. Zero manual entry.",
+        "tag": "Data"
+      },
+      {
+        "id": "tool-4",
+        "name": "SupportAI",
+        "description": "Train an AI on your knowledge base and automate 80% of customer support tickets.",
+        "tag": "Support"
+      }
+    ]
+  },
+  "results": {
+    "label": "Proven Results",
+    "headline": "The Numbers Don't Lie",
+    "stats": [
+      {
+        "id": "res-1",
+        "value": "2.4M",
+        "prefix": "$",
+        "label": "Saved in labour costs",
+        "industry": "Retail & E-commerce"
+      },
+      {
+        "id": "res-2",
+        "value": "89",
+        "suffix": "%",
+        "label": "Reduction in manual data entry",
+        "industry": "Financial Services"
+      },
+      {
+        "id": "res-3",
+        "value": "14x",
+        "label": "ROI within 90 days",
+        "industry": "SaaS & Tech"
+      },
+      {
+        "id": "res-4",
+        "value": "3.2x",
+        "label": "Increase in lead conversion",
+        "industry": "Professional Services"
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Ready to Stop Doing Work a Machine Can Do?",
+    "subheadline": "Book a free 30-minute discovery call. We'll map your biggest automation opportunity and show you exactly what's possible.",
+    "ctaLabel": "Book Your Free Call",
+    "note": "No commitment. No sales pitch. Just a clear plan."
+  }
+}

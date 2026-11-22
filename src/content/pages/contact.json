@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Get in touch",
+    "headline": "We're here when you're ready.",
+    "subheadline": "Questions about our tools, services, or whether automation is right for your business — send us a message and we'll get back to you within one business day."
+  },
+  "info": {
+    "heading": "Contact details",
+    "email": "hello@automationgod.ca",
+    "location": "Toronto, Ontario, Canada",
+    "responseTime": "Within 1 business day",
+    "links": [
+      {
+        "id": "l1",
+        "label": "Book a discovery call",
+        "href": "/book",
+        "description": "Prefer a conversation? Book a free 30-minute call."
+      },
+      {
+        "id": "l2",
+        "label": "View our services",
+        "href": "/services",
+        "description": "See what we build and how we price it."
+      },
+      {
+        "id": "l3",
+        "label": "Read case studies",
+        "href": "/results",
+        "description": "Real results from real clients."
+      }
+    ]
+  },
+  "form": {
+    "heading": "Send a message",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "you@company.com",
+    "subjectOptions": [
+      "General question",
+      "Service inquiry",
+      "Partnership opportunity",
+      "Press or media",
+      "Something else"
+    ],
+    "messagePlaceholder": "Tell us what's on your mind...",
+    "submitText": "Send message",
+    "submittingText": "Sending...",
+    "successHeading": "Message received.",
+    "successMessage": "We'll be in touch within one business day. If it's urgent, book a discovery call directly.",
+    "errorMessage": "Something went wrong. Please try again or email us directly."
+  }
+}
