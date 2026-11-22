@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import { sendForm } from '@/lib/send-form';
+import Seo from '@/components/Seo';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
@@ -36,28 +37,16 @@ export default function ContactPage() {
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/contact/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          conversation: {
-            messages_attributes: [{ body: message || 'New contact form submission' }],
-            data: {
-              __gd_contact_form_title: 'Contact Us',
-              'Subject': subject,
-            },
-          },
-          user: { email, name },
-        }),
+      await sendForm({
+        formName: 'contact',
+        title: 'Contact Us',
+        name,
+        email,
+        message: message || 'New contact form submission',
+        fields: { Subject: subject },
       });
-
-      const json = await res.json() as { success: boolean; error?: string };
-      if (json.success) {
-        setStatus('success');
-        form.reset();
-      } else {
-        throw new Error(json.error || 'Something went wrong.');
-      }
+      setStatus('success');
+      form.reset();
     } catch (err) {
       setStatus('error');
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
@@ -66,32 +55,16 @@ export default function ContactPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Automation God — AI Automation Questions &amp; Inquiries</title>
-        <meta name="description" content="Get in touch with Automation God. Questions about AI automation for your Canadian business? We respond within one business day. Based in Waterloo, ON." />
-        <meta property="og:title" content="Contact Automation God — AI Automation Questions &amp; Inquiries" />
-        <meta property="og:description" content="Questions about AI automation for your business? Reach out. We respond within one business day." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://automationgod.ca/contact" />
-        <meta property="og:image" content="https://automationgod.ca/og-image.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://automationgod.ca/og-image.svg" />
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ContactPage',
-          '@id': 'https://automationgod.ca/contact#webpage',
-          name: 'Contact Automation God — AI Automation Questions & Inquiries',
-          url: 'https://automationgod.ca/contact',
-          description: 'Contact Automation God for questions about AI automation systems for your Canadian business.',
-          isPartOf: { '@id': 'https://automationgod.ca/#website' },
-          about: { '@id': 'https://automationgod.ca/#organization' },
-        }).replace(/</g, '\u003c')}</script>
-      </Helmet>
+      <Seo
+        title="Contact Automation God | Waterloo, Ontario"
+        description="Contact Automation God in Waterloo, Ontario about websites, SEO, custom software or automation. Email mosses@automationgod.ca. We reply within one business day."
+        path="/contact"
+      />
 
       <main className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
 
         {/* ── Hero ── */}
-        <section className="relative pt-24 pb-16 px-6 overflow-hidden">
+        <section className="relative pt-12 md:pt-20 pb-10 md:pb-12 px-6 overflow-hidden">
           <div className="pointer-events-none absolute inset-0 flex items-start justify-center">
             <div className="w-[600px] h-[360px] rounded-full bg-primary/5 blur-[120px] mt-[-60px]" />
           </div>
@@ -124,7 +97,7 @@ export default function ContactPage() {
         </section>
 
         {/* ── Two-column: info + form ── */}
-        <section className="py-20 px-6">
+        <section className="py-12 md:py-16 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
             {/* Left: contact info (2 cols) */}
@@ -208,7 +181,7 @@ export default function ContactPage() {
                     </Link>
                   </motion.li>
                   <motion.li variants={fadeUp}>
-                    <Link to="/results" className="group flex items-start gap-3 p-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-primary/40 hover:bg-primary/5 transition-all duration-200">
+                    <Link to="/projects" className="group flex items-start gap-3 p-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-primary/40 hover:bg-primary/5 transition-all duration-200">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold text-white group-hover:text-primary transition-colors">
                           {contact.info.links[2].label}

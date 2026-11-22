@@ -1,125 +1,15 @@
 {
   "hero": {
-    "eyebrow": "Proven results",
-    "headline": "Real businesses. Real numbers.",
-    "subheadline": "Every stat below comes from an actual client engagement. No projections. No estimates. Just what happened when we automated the work."
+    "eyebrow": "Projects",
+    "headline": "Work we're proud of.",
+    "subheadline": "A look at what we build for the businesses we work with."
   },
-  "stats": [
-    {
-      "id": "s1",
-      "value": "73%",
-      "label": "Average reduction in manual admin time"
-    },
-    {
-      "id": "s2",
-      "value": "4.2×",
-      "label": "Average ROI within 90 days"
-    },
-    {
-      "id": "s3",
-      "value": "11 hrs",
-      "label": "Average hours saved per employee per week"
-    },
-    {
-      "id": "s4",
-      "value": "< 3 wks",
-      "label": "Average time to first automation live"
-    }
-  ],
-  "caseStudies": [
-    {
-      "id": "cs1",
-      "industry": "E-commerce",
-      "company": "Mid-size online retailer",
-      "challenge": "Order processing, inventory updates, and customer follow-ups were handled manually across three disconnected tools. The ops team spent 30+ hours a week on data entry alone.",
-      "solution": "Built a FlowForge workflow connecting Shopify, their 3PL, and Klaviyo. Orders now trigger automatic inventory pulls, shipping label generation, and post-purchase sequences without a single human touch.",
-      "results": [
-        {
-          "id": "r1",
-          "metric": "32 hrs/week",
-          "description": "saved on manual order processing"
-        },
-        {
-          "id": "r2",
-          "metric": "99.2%",
-          "description": "order accuracy (up from 91%)"
-        },
-        {
-          "id": "r3",
-          "metric": "$180K",
-          "description": "annualized labour cost reduction"
-        }
-      ],
-      "timeframe": "Deployed in 18 days"
-    },
-    {
-      "id": "cs2",
-      "industry": "B2B SaaS",
-      "company": "Series A software company",
-      "challenge": "Sales reps were spending 3–4 hours daily on lead research, CRM updates, and follow-up scheduling. Pipeline visibility was poor and deals were slipping through the cracks.",
-      "solution": "Deployed LeadBot Pro to qualify inbound leads, auto-enrich CRM records, and trigger personalized outreach sequences. Reps now only touch leads that are sales-ready.",
-      "results": [
-        {
-          "id": "r4",
-          "metric": "61%",
-          "description": "increase in qualified pipeline"
-        },
-        {
-          "id": "r5",
-          "metric": "3.8 hrs/day",
-          "description": "saved per sales rep"
-        },
-        {
-          "id": "r6",
-          "metric": "2.1×",
-          "description": "improvement in close rate"
-        }
-      ],
-      "timeframe": "Deployed in 12 days"
-    },
-    {
-      "id": "cs3",
-      "industry": "Professional Services",
-      "company": "Accounting firm (22 staff)",
-      "challenge": "Client onboarding required manual data collection, document chasing, and entry into three separate systems. New clients waited up to two weeks before work could begin.",
-      "solution": "Automated the entire onboarding pipeline with DataSync AI — intake forms feed directly into their practice management software, document requests are triggered automatically, and staff get notified only when everything is complete.",
-      "results": [
-        {
-          "id": "r7",
-          "metric": "11 days → 2 days",
-          "description": "client onboarding time"
-        },
-        {
-          "id": "r8",
-          "metric": "85%",
-          "description": "reduction in onboarding admin"
-        },
-        {
-          "id": "r9",
-          "metric": "40%",
-          "description": "increase in client capacity without new hires"
-        }
-      ],
-      "timeframe": "Deployed in 21 days"
-    }
-  ],
-  "testimonials": [
-    {
-      "id": "t1",
-      "quote": "We were skeptical that automation could work for our specific setup. Within three weeks we had workflows running that we didn't think were possible. The ROI was obvious within the first month.",
-      "author": "Operations Director",
-      "company": "E-commerce client"
-    },
-    {
-      "id": "t2",
-      "quote": "Our sales team was drowning in admin. Now they actually sell. Pipeline is up, morale is up, and we're closing deals we would have missed before.",
-      "author": "VP of Sales",
-      "company": "B2B SaaS client"
-    }
-  ],
+  "stats": [],
+  "caseStudies": [],
+  "testimonials": [],
   "cta": {
-    "headline": "Want results like these?",
-    "subheadline": "Book a 30-minute discovery call. We'll map out exactly where automation can move the needle for your business.",
+    "headline": "Want a website like this?",
+    "subheadline": "Book a free call and tell us about your business. Try any service free for 3 months.",
     "buttonText": "Book a Discovery Call",
     "buttonHref": "/book"
   }

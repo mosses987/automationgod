@@ -1,14 +1,18 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
+import Seo, { SITE_URL } from '@/components/Seo';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
-import { Zap, Target, Database, MessageCircle, Map, CheckCircle2 } from 'lucide-react';
+import { Zap, Map, Globe, Search, Code, Star, CalendarCheck, Users, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { services } from 'virtual:content';
 
 const iconMap: Record<string, React.ReactNode> = {
   zap: <Zap className="h-6 w-6 text-primary" />,
-  target: <Target className="h-6 w-6 text-primary" />,
-  database: <Database className="h-6 w-6 text-primary" />,
-  'message-circle': <MessageCircle className="h-6 w-6 text-primary" />,
+  globe: <Globe className="h-6 w-6 text-primary" />,
+  search: <Search className="h-6 w-6 text-primary" />,
+  code: <Code className="h-6 w-6 text-primary" />,
+  calendar: <CalendarCheck className="h-6 w-6 text-primary" />,
+  users: <Users className="h-6 w-6 text-primary" />,
+  shield: <ShieldCheck className="h-6 w-6 text-primary" />,
+  star: <Star className="h-6 w-6 text-primary" />,
   map: <Map className="h-6 w-6 text-primary" />,
 };
 
@@ -25,33 +29,81 @@ const fadeUp = {
   }),
 };
 
+// Frequently asked questions. Shown on the page and sent to Google as FAQPage data.
+const faqs = [
+  {
+    q: 'How does the 3-month free offer work?',
+    a: "Pick any service and we deliver it free for the first three months. There's no contract and no commitment. Before we start, we agree on exactly what's included, so there are no surprises. After three months you can continue with a clear quote, or walk away.",
+  },
+  {
+    q: 'What services do you offer?',
+    a: 'Website design and build, SEO, custom software, online booking and ordering, customer management and follow-up (CRM), automated review collection, AI and workflow automation, and website care plans. If you need something else, ask us.',
+  },
+  {
+    q: 'Do you only work with businesses in Waterloo?',
+    a: "No. We're based in Waterloo, Ontario, and work with businesses in Kitchener, Cambridge and across Ontario. Most of our work can be done remotely.",
+  },
+  {
+    q: 'How long does it take to build a website or app?',
+    a: 'It depends on the size of the project. After a free discovery call we give you a clear scope and timeline before any work begins.',
+  },
+  {
+    q: 'Can you help with something that is not on this list?',
+    a: "Probably. If a technology problem is holding your business back, tell us about it. We'll tell you honestly whether we can solve it and how.",
+  },
+  {
+    q: 'What happens after my website or software launches?',
+    a: 'We stay available to fix, improve and grow what we built. For websites, our care plans cover hosting, security updates, backups and content changes for one monthly fee.',
+  },
+];
+
 export default function ServicesPage() {
   return (
     <>
-      <Helmet>
-        <title>{services.meta.title}</title>
-        <meta name="description" content={services.meta.description} />
-        <meta property="og:title" content={services.meta.title} />
-        <meta property="og:description" content={services.meta.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://automationgod.ca/services" />
-        <meta property="og:image" content="https://automationgod.ca/og-image.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://automationgod.ca/og-image.svg" />
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          '@id': 'https://automationgod.ca/services#webpage',
-          name: services.meta.title,
-          url: 'https://automationgod.ca/services',
-          isPartOf: { '@id': 'https://automationgod.ca/#website' },
-          about: { '@id': 'https://automationgod.ca/#organization' },
-        }).replace(/</g, '\u003c')}</script>
-      </Helmet>
+      <Seo
+        title={services.meta.title}
+        description={services.meta.description}
+        path="/services"
+        jsonLd={[
+          {
+            '@type': 'ItemList',
+            '@id': `${SITE_URL}/services#services`,
+            name: 'Services',
+            itemListElement: services.services.map((svc, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              item: {
+                '@type': 'Service',
+                name: svc.title,
+                description: svc.description,
+                serviceType: svc.title,
+                provider: { '@id': `${SITE_URL}/#organization` },
+                areaServed: { '@type': 'AdministrativeArea', name: 'Ontario' },
+              },
+            })),
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': `${SITE_URL}/services#faq`,
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+          {
+            '@type': 'Offer',
+            name: 'Try any service free for 3 months',
+            price: '0',
+            priceCurrency: 'CAD',
+            offeredBy: { '@id': `${SITE_URL}/#organization` },
+          },
+        ]}
+      />
 
       <main>
         {/* ── HERO ─────────────────────────────────────────────────────────── */}
-        <section className="relative py-32 overflow-hidden bg-[hsl(var(--background))]">
+        <section className="relative py-14 md:py-20 overflow-hidden bg-[hsl(var(--background))]">
           {/* Grid bg */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +122,7 @@ export default function ServicesPage() {
                 <div className="h-px w-10 bg-primary" />
                 <span className="text-xs font-mono tracking-widest text-primary uppercase">{services.hero.label}</span>
               </motion.div>
-              <motion.h1 variants={fadeUp} custom={1} className="font-heading text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[0.95]">
+              <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl break-words font-black text-white tracking-tight leading-[0.95]">
                 {services.hero.headline}
               </motion.h1>
               <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-[hsl(var(--muted-foreground))] max-w-2xl leading-relaxed">
@@ -83,7 +135,7 @@ export default function ServicesPage() {
         <CyanDivider />
 
         {/* ── SERVICES LIST ─────────────────────────────────────────────────── */}
-        <section className="py-xxl bg-[hsl(var(--background))]">
+        <section className="py-12 md:py-16 bg-[hsl(var(--background))]">
           <div className="container mx-auto px-6">
             <div className="flex flex-col gap-6">
               {services.services.map((svc, i) => (
@@ -112,7 +164,7 @@ export default function ServicesPage() {
                         <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.description}</p>
                       </div>
                       <div className="mt-auto pt-4 border-t border-[hsl(var(--border))]">
-                        <span className="text-xs font-mono tracking-widest text-primary/70 uppercase">Typical outcome</span>
+                        <span className="text-xs font-mono tracking-widest text-primary/70 uppercase">What you get</span>
                         <p className="text-white font-semibold text-sm mt-1">{svc.outcome}</p>
                       </div>
                     </div>
@@ -147,9 +199,9 @@ export default function ServicesPage() {
         <CyanDivider />
 
         {/* ── PRICING ──────────────────────────────────────────────────────── */}
-        <section className="py-xxl bg-[hsl(var(--secondary))]">
+        <section className="py-12 md:py-16 bg-[hsl(var(--secondary))]">
           <div className="container mx-auto px-6">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-14">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8 md:mb-12">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
                 <div className="h-px w-10 bg-primary" />
                 <span className="text-xs font-mono tracking-widest text-primary uppercase">{services.pricing.label}</span>
@@ -162,7 +214,7 @@ export default function ServicesPage() {
               </motion.p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 max-w-xl mx-auto">
               {services.pricing.tiers.map((tier, i) => (
                 <motion.div
                   key={tier.id}
@@ -232,8 +284,42 @@ export default function ServicesPage() {
 
         <CyanDivider />
 
+        {/* ── FAQ ─────────────────────────────────────────────────────────── */}
+        <section className="py-12 md:py-16 bg-[hsl(var(--secondary))]">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <div className="mb-8 md:mb-10 text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-mono tracking-widest text-primary uppercase">FAQ</span>
+                <div className="h-px w-10 bg-primary" />
+              </div>
+              <h2 className="font-heading text-3xl md:text-5xl font-black text-white tracking-tight">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="flex flex-col gap-3">
+              {faqs.map((f) => (
+                <details
+                  key={f.q}
+                  className="group rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] open:border-primary/50 transition-colors"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5 text-left font-semibold text-white [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-base md:text-lg">{f.q}</h3>
+                    <span aria-hidden="true" className="shrink-0 text-2xl leading-none text-primary transition-transform duration-200 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="px-5 pb-5 md:px-6 md:pb-6 text-sm md:text-base leading-relaxed text-[hsl(var(--muted-foreground))]">
+                    {f.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CyanDivider />
+
         {/* ── CTA ──────────────────────────────────────────────────────────── */}
-        <section className="py-xxl bg-[hsl(var(--background))]">
+        <section className="py-12 md:py-16 bg-[hsl(var(--background))]">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

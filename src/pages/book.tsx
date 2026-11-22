@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import { sendForm } from '@/lib/send-form';
+import Seo from '@/components/Seo';
 import { motion } from 'motion/react';
 import { CheckCircle, Clock, ArrowRight } from 'lucide-react';
 import { book } from 'virtual:content';
@@ -45,30 +46,16 @@ export default function BookPage() {
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/contact/book-discovery-call', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          conversation: {
-            messages_attributes: [{ body: goal || 'New discovery call request' }],
-            data: {
-              __gd_contact_form_title: 'Book a Discovery Call',
-              'Company': company,
-              'Role': role,
-              'Team size': teamSize,
-            },
-          },
-          user: { email, name },
-        }),
+      await sendForm({
+        formName: 'book-discovery-call',
+        title: 'Book a Discovery Call',
+        name,
+        email,
+        message: goal || 'New discovery call request',
+        fields: { Company: company, Role: role, 'Team size': teamSize },
       });
-
-      const json = await res.json() as { success: boolean; error?: string };
-      if (json.success) {
-        setStatus('success');
-        form.reset();
-      } else {
-        throw new Error(json.error || 'Something went wrong.');
-      }
+      setStatus('success');
+      form.reset();
     } catch (err) {
       setStatus('error');
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
@@ -77,32 +64,16 @@ export default function BookPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Book a Free AI Automation Discovery Call — Automation God</title>
-        <meta name="description" content="Book a free 30-minute discovery call with Automation God. We'll map your automation opportunities and show you exactly where you can save time and money. No pitch, no fluff." />
-        <meta property="og:title" content="Book a Free AI Automation Discovery Call — Automation God" />
-        <meta property="og:description" content="30 minutes. A clear automation plan. No pitch, no fluff. Book your free discovery call with Automation God." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://automationgod.ca/book" />
-        <meta property="og:image" content="https://automationgod.ca/og-image.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://automationgod.ca/og-image.svg" />
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ContactPage',
-          '@id': 'https://automationgod.ca/book#webpage',
-          name: 'Book a Free AI Automation Discovery Call — Automation God',
-          url: 'https://automationgod.ca/book',
-          description: 'Book a free 30-minute discovery call. We map your automation opportunities and deliver a clear, prioritized plan.',
-          isPartOf: { '@id': 'https://automationgod.ca/#website' },
-          about: { '@id': 'https://automationgod.ca/#organization' },
-        }).replace(/</g, '\u003c')}</script>
-      </Helmet>
+      <Seo
+        title="Book a Free Discovery Call | Automation God"
+        description="Book a free 30-minute call with Automation God. Tell us what your business needs (a website, SEO, software or automation) and get a clear plan."
+        path="/book"
+      />
 
       <main className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
 
         {/* ── Hero ── */}
-        <section className="relative pt-24 pb-16 px-6 overflow-hidden">
+        <section className="relative pt-12 md:pt-20 pb-10 md:pb-12 px-6 overflow-hidden">
           <div className="pointer-events-none absolute inset-0 flex items-start justify-center">
             <div className="w-[700px] h-[400px] rounded-full bg-primary/5 blur-[140px] mt-[-60px]" />
           </div>
@@ -141,7 +112,7 @@ export default function BookPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={stagger}
-            className="max-w-3xl mx-auto grid grid-cols-3 gap-6"
+            className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6"
           >
             {book.trust.map((t) => (
               <motion.div key={t.id} variants={fadeUp} className="text-center">
@@ -157,7 +128,7 @@ export default function BookPage() {
         </section>
 
         {/* ── Main content: two-column ── */}
-        <section className="py-20 px-6">
+        <section className="py-12 md:py-16 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* Left: What to expect */}

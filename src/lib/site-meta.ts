@@ -5,5 +5,5 @@ export interface SiteMeta {
 
 export const siteMeta: SiteMeta = {
 	name: "Automation God",
-	summary: "Automation God builds AI-powered automation systems that eliminate manual work, cut operational costs, and scale Canadian small and medium businesses without adding headcount.",
+	summary: "Automation God is a Waterloo, Ontario partner for websites, SEO, custom software, automated reviews and AI automation.",
 };

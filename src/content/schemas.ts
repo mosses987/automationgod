@@ -35,17 +35,6 @@ export const schemas = {
           "tag": z.string()
         }))
       }),
-      "results": z.object({
-        "label": z.string(),
-        "headline": z.string(),
-        "stats": z.array(z.object({
-          "id": z.string(),
-          "value": z.string(),
-          "prefix": z.string(),
-          "label": z.string(),
-          "industry": z.string()
-        }))
-      }),
       "cta": z.object({
         "headline": z.string(),
         "subheadline": z.string(),

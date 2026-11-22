@@ -6,8 +6,8 @@
   },
   "info": {
     "heading": "Contact details",
-    "email": "hello@automationgod.ca",
-    "location": "Toronto, Ontario, Canada",
+    "email": "mosses@automationgod.ca",
+    "location": "Waterloo, Ontario, Canada",
     "responseTime": "Within 1 business day",
     "links": [
       {
@@ -24,9 +24,9 @@
       },
       {
         "id": "l3",
-        "label": "Read case studies",
-        "href": "/results",
-        "description": "Real results from real clients."
+        "label": "See our projects",
+        "href": "/projects",
+        "description": "A look at the work we do."
       }
     ]
   },

@@ -1,5 +1,4 @@
-import { RouteObject } from 'react-router';
-import { lazy } from 'react';
+import { RouteObject, Navigate } from 'react-router';
 import HomePage from './pages/index';
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
 // and abort to client rendering. The prod 404 page is tiny; the dev-tools
@@ -10,10 +9,6 @@ import ServicesPage from './pages/services';
 import ResultsPage from './pages/results';
 import BookPage from './pages/book';
 import ContactPage from './pages/contact';
-import ProductsPage from './pages/Products';
-import CartPage from './pages/cart';
-import CheckoutSuccess from './pages/checkout/success';
-import CheckoutCancel from './pages/checkout/cancel';
 
 const NotFoundPage = ProdNotFoundPage;
 
@@ -35,24 +30,12 @@ export const routes: RouteObject[] = [
     element: <BookPage />,
   },
   {
-    path: '/results',
+    path: '/projects',
     element: <ResultsPage />,
   },
   {
-    path: '/tools',
-    element: <ProductsPage />,
-  },
-  {
-    path: '/cart',
-    element: <CartPage />,
-  },
-  {
-    path: '/checkout/success',
-    element: <CheckoutSuccess />,
-  },
-  {
-    path: '/checkout/cancel',
-    element: <CheckoutCancel />,
+    path: '/results',
+    element: <Navigate to="/projects" replace />,
   },
   {
     id: 'airo-not-found',
@@ -62,6 +45,6 @@ export const routes: RouteObject[] = [
 ];
 
 // Types for type-safe navigation
-export type Path = '/' | '/services' | '/contact' | '/book' | '/results' | '/tools' | '/cart' | '/checkout/success' | '/checkout/cancel';
+export type Path = '/' | '/services' | '/contact' | '/book' | '/projects';
 
 export type Params = Record<string, string | undefined>;

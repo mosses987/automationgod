@@ -1,158 +1,183 @@
 {
   "meta": {
-    "title": "Services — Automation God",
-    "description": "AI-powered automation services for SMBs. Workflow automation, lead generation, data pipelines, AI support, and process consulting."
+    "title": "Web Design, SEO & Custom Software Services | Automation God",
+    "description": "Website design, SEO, custom software, online booking, CRM, review automation and website care in Waterloo, Ontario. Try any service free for 3 months."
   },
   "hero": {
     "label": "What We Do",
-    "headline": "We Build Systems That Work While You Sleep.",
-    "subheadline": "Every service we offer is designed around one goal: eliminate the manual work that's slowing your business down and replace it with intelligent automation."
+    "headline": "Everything Your Business Needs, in One Place.",
+    "subheadline": "From a new website to custom software, we handle the digital work so you can focus on running your business. Try any service free for 3 months, no strings attached."
   },
   "services": [
     {
-      "id": "svc-workflow",
-      "slug": "ai-workflow-automation",
-      "title": "AI Workflow Automation",
-      "tagline": "Replace repetitive tasks with intelligent, self-running systems.",
-      "description": "We map your existing processes, identify every manual touchpoint, and replace them with AI-driven workflows that run 24/7 without human intervention. From document processing to multi-step approvals, we automate the full chain.",
+      "id": "svc-web",
+      "slug": "website-design",
+      "title": "Website Design & Build",
+      "tagline": "A fast, modern website that works as hard as you do.",
+      "description": "We design and build websites that look great on every device, load quickly and make it easy for customers to contact or buy from you.",
       "useCases": [
-        "Invoice processing & approval routing",
-        "Employee onboarding & offboarding",
-        "Inventory management & reorder triggers",
-        "Report generation & distribution",
-        "Multi-system data synchronization"
+        "New business websites",
+        "Website redesigns",
+        "Online booking and contact forms",
+        "Online stores",
+        "Ongoing updates and maintenance"
       ],
-      "outcome": "Average 60% reduction in process time",
+      "outcome": "A website you own, built around your business",
+      "icon": "globe"
+    },
+    {
+      "id": "svc-seo",
+      "slug": "seo",
+      "title": "SEO",
+      "tagline": "Get found by people searching for what you offer.",
+      "description": "We improve your site and online presence so you show up when customers search, and make sure the basics like Google Business Profile, page speed and content are done properly.",
+      "useCases": [
+        "Keyword and competitor research",
+        "On-page and technical SEO",
+        "Google Business Profile setup",
+        "Content that ranks",
+        "Monthly progress reporting"
+      ],
+      "outcome": "More visibility where your customers are searching",
+      "icon": "search"
+    },
+    {
+      "id": "svc-software",
+      "slug": "custom-software",
+      "title": "Custom Software",
+      "tagline": "Tools built around how your business actually works.",
+      "description": "When off-the-shelf software doesn't fit, we build what does: internal tools, customer portals, dashboards and integrations between the systems you already use.",
+      "useCases": [
+        "Internal tools and dashboards",
+        "Customer portals",
+        "Booking and scheduling systems",
+        "Connecting your existing apps",
+        "Replacing spreadsheets with real software"
+      ],
+      "outcome": "Software that fits your process, not the other way round",
+      "icon": "code"
+    },
+    {
+      "id": "svc-reviews",
+      "slug": "automated-reviews",
+      "title": "Automated Review Collection",
+      "tagline": "Turn happy customers into 5-star reviews, automatically.",
+      "description": "After each job or sale, your customers get a friendly, well-timed request to leave a review. We set it up once and it runs on its own.",
+      "useCases": [
+        "Automatic review requests by text or email",
+        "Google review link setup",
+        "Private feedback for unhappy customers",
+        "Review monitoring and alerts"
+      ],
+      "outcome": "A steady stream of reviews without chasing anyone",
+      "icon": "star"
+    },
+    {
+      "id": "svc-automation",
+      "slug": "ai-automation",
+      "title": "AI & Workflow Automation",
+      "tagline": "Replace repetitive tasks with systems that run themselves.",
+      "description": "We find the manual work slowing you down and automate it: follow-ups, data entry, reports, customer questions and more.",
+      "useCases": [
+        "Automated follow-ups and reminders",
+        "AI chat for common customer questions",
+        "Data sync between your tools",
+        "Report and invoice automation",
+        "Lead capture and routing"
+      ],
+      "outcome": "Less manual work, fewer mistakes",
       "icon": "zap"
     },
     {
-      "id": "svc-leads",
-      "slug": "lead-generation-systems",
-      "title": "Lead Generation Systems",
-      "tagline": "Automated outreach, qualification, and follow-up — 24/7.",
-      "description": "We build end-to-end lead generation machines: automated prospecting, AI-powered qualification, personalized outreach sequences, and CRM sync. Your sales team only talks to leads that are ready to buy.",
+      "id": "svc-booking",
+      "slug": "booking-and-ordering",
+      "title": "Online Booking & Ordering",
+      "tagline": "Let customers book, order and pay online, any time.",
+      "description": "We set up booking, scheduling and ordering systems with payments and automatic reminders, so you spend less time on the phone and fewer appointments get missed.",
       "useCases": [
-        "LinkedIn & email outreach automation",
-        "AI lead scoring & qualification",
-        "Automated follow-up sequences",
-        "CRM enrichment & data hygiene",
-        "Meeting booking automation"
+        "Appointment and class booking",
+        "Quote and service requests",
+        "Online ordering, pickup and delivery",
+        "Payments through Stripe or Square",
+        "Automatic confirmations and reminders"
       ],
-      "outcome": "3.2x average increase in qualified pipeline",
-      "icon": "target"
+      "outcome": "Customers book and pay without a phone call",
+      "icon": "calendar"
     },
     {
-      "id": "svc-data",
-      "slug": "data-pipeline-automation",
-      "title": "Data Pipeline Automation",
-      "tagline": "Connect your tools. Eliminate manual data entry forever.",
-      "description": "We build real-time data pipelines that connect your entire tech stack — CRM, ERP, marketing tools, databases, and more. Data flows automatically, stays clean, and is always where it needs to be.",
+      "id": "svc-crm",
+      "slug": "crm-and-follow-up",
+      "title": "Customer Management & Follow-Up",
+      "tagline": "Never lose track of a lead or a customer again.",
+      "description": "We build a simple system to keep every lead and customer in one place, and automate the follow-up texts and emails that keep people coming back.",
       "useCases": [
-        "CRM ↔ ERP synchronization",
-        "Marketing attribution data pipelines",
-        "Financial reporting automation",
-        "Customer data platform (CDP) builds",
-        "API integration & webhook management"
+        "Lead and customer tracking",
+        "Automatic follow-up after enquiries",
+        "Win-back messages for past customers",
+        "Email and SMS campaigns",
+        "Simple pipeline and reporting views"
       ],
-      "outcome": "89% average reduction in manual data entry",
-      "icon": "database"
+      "outcome": "Every enquiry gets followed up",
+      "icon": "users"
     },
     {
-      "id": "svc-support",
-      "slug": "ai-customer-support",
-      "title": "AI Customer Support",
-      "tagline": "Handle 80% of support tickets without a human.",
-      "description": "We train AI on your knowledge base, products, and policies to handle the majority of customer inquiries automatically. Complex issues escalate to your team with full context — so they can resolve faster.",
+      "id": "svc-care",
+      "slug": "website-care-plans",
+      "title": "Website Care Plans",
+      "tagline": "Hosting, updates and support for one simple monthly fee.",
+      "description": "We keep your website fast, secure and up to date, so you never have to worry about hosting, backups or broken pages.",
       "useCases": [
-        "AI chatbot trained on your knowledge base",
-        "Automated ticket triage & routing",
-        "Order status & tracking automation",
-        "FAQ & policy response automation",
-        "Escalation workflows with context handoff"
+        "Hosting and domain management",
+        "Security updates and backups",
+        "Content and design changes",
+        "Uptime and speed monitoring",
+        "Direct support when something breaks"
       ],
-      "outcome": "80% ticket deflection rate on average",
-      "icon": "message-circle"
+      "outcome": "A website that stays online and up to date",
+      "icon": "shield"
     },
     {
-      "id": "svc-consulting",
-      "slug": "process-consulting",
-      "title": "Process Consulting",
-      "tagline": "Map, audit, and redesign your workflows for maximum efficiency.",
-      "description": "Before we automate anything, we make sure we're automating the right things. Our process consulting engagement maps your entire operation, identifies the highest-ROI automation opportunities, and delivers a prioritized roadmap.",
+      "id": "svc-other",
+      "slug": "anything-else",
+      "title": "Anything Else You Need",
+      "tagline": "Have a different problem? Tell us.",
+      "description": "If a technology problem is holding your business back, we'll tell you honestly whether we can solve it and how.",
       "useCases": [
-        "Full operational workflow audit",
-        "Automation opportunity scoring",
-        "ROI modelling & business case",
-        "Technology stack assessment",
-        "90-day automation roadmap"
+        "Not sure what you need? We'll help you figure it out",
+        "Reviewing your current tools and setup",
+        "One-off fixes and improvements"
       ],
-      "outcome": "Clients identify avg. $180K/yr in automation savings",
+      "outcome": "A clear plan before any work begins",
       "icon": "map"
     }
   ],
   "pricing": {
-    "label": "Pricing",
-    "headline": "Transparent Pricing. Real ROI.",
-    "subheadline": "Every engagement is scoped to your specific needs. These tiers give you a starting point.",
+    "label": "Our Offer",
+    "headline": "Try Any Service Free for 3 Months.",
+    "subheadline": "No strings attached. Every project is scoped to your needs, so book a call and we'll agree on exactly what's included.",
     "tiers": [
       {
-        "id": "tier-starter",
-        "name": "Starter",
-        "price": "$2,500",
-        "period": "one-time",
-        "tagline": "One automation. Proven results.",
-        "description": "Perfect for businesses that want to test automation with a single high-impact workflow.",
+        "id": "tier-free",
+        "name": "3 Months Free",
+        "price": "$0",
+        "period": "for 3 months",
+        "tagline": "Any service. No strings attached.",
+        "description": "Pick any service and use it free for three months. If it's not for you, walk away.",
         "features": [
-          "1 custom automation workflow",
-          "Up to 3 tool integrations",
-          "30-day support & monitoring",
-          "Documentation & handoff",
-          "ROI tracking setup"
+          "Choose any service we offer",
+          "Free consultation and plan",
+          "No contract, no commitment",
+          "Cancel anytime",
+          "Clear quote if you decide to continue"
         ],
-        "cta": "Get Started",
-        "highlighted": false
-      },
-      {
-        "id": "tier-growth",
-        "name": "Growth",
-        "price": "$7,500",
-        "period": "one-time",
-        "tagline": "Full automation stack for growing teams.",
-        "description": "For businesses ready to automate multiple workflows and connect their entire tech stack.",
-        "features": [
-          "Up to 5 custom automation workflows",
-          "Unlimited tool integrations",
-          "AI model training & deployment",
-          "60-day support & optimization",
-          "Monthly performance reports",
-          "Priority Slack support"
-        ],
-        "cta": "Most Popular",
+        "cta": "Claim Your 3 Free Months",
         "highlighted": true
-      },
-      {
-        "id": "tier-enterprise",
-        "name": "Enterprise",
-        "price": "Custom",
-        "period": "engagement",
-        "tagline": "Full-scale automation transformation.",
-        "description": "For organizations ready to automate at scale across departments and systems.",
-        "features": [
-          "Unlimited automation workflows",
-          "Dedicated automation engineer",
-          "Full process consulting engagement",
-          "Custom AI model development",
-          "Ongoing retainer & optimization",
-          "SLA-backed support"
-        ],
-        "cta": "Book a Call",
-        "highlighted": false
       }
     ]
   },
   "cta": {
     "headline": "Not Sure Where to Start?",
-    "subheadline": "Book a free 30-minute discovery call. We'll identify your top automation opportunity and give you a clear ROI estimate — no commitment required.",
+    "subheadline": "Book a free 30-minute discovery call. Tell us what your business needs and we'll recommend where to begin. No commitment required.",
     "ctaLabel": "Book a Free Discovery Call"
   }
 }

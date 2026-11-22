@@ -1,136 +1,122 @@
 {
   "hero": {
-    "headline": "Automate Everything.",
-    "headlineAccent": "Dominate Your Industry.",
-    "subheadline": "We build AI-powered automation systems that cut costs, eliminate manual work, and scale your business — without adding headcount.",
+    "headline": "Everything Your Business Needs.",
+    "headlineAccent": "Built in One Place.",
+    "subheadline": "Websites, SEO, custom software, automated reviews and AI automation. One partner in Waterloo, Ontario that takes care of your digital work from start to finish. Try any service free for 3 months, no strings attached.",
     "ctaPrimary": "Book a Free Call",
-    "ctaSecondary": "See Our Tools",
+    "ctaSecondary": "See Our Services",
     "stats": [
       {
         "id": "stat-1",
-        "value": "10x",
-        "label": "Faster Workflows"
+        "value": "Free",
+        "label": "First 3 months on any service"
       },
       {
         "id": "stat-2",
-        "value": "500+",
-        "label": "Businesses Automated"
+        "value": "One",
+        "label": "Partner for everything digital"
       },
       {
         "id": "stat-3",
-        "value": "40%",
-        "label": "Avg. Cost Reduction"
+        "value": "Zero",
+        "label": "Contracts or strings attached"
       },
       {
         "id": "stat-4",
-        "value": "72h",
-        "label": "Avg. Time to Deploy"
+        "value": "Waterloo",
+        "label": "Ontario-based, easy to reach"
       }
     ]
   },
   "services": {
-    "label": "What We Build",
-    "headline": "Automation That Moves the Needle",
-    "subheadline": "Not templates. Not demos. Real systems that replace manual work and generate measurable ROI.",
+    "label": "What We Do",
+    "headline": "One Partner for Your Digital Work",
+    "subheadline": "Practical solutions built around how your business actually runs.",
     "items": [
       {
         "id": "svc-1",
-        "title": "AI Workflow Automation",
-        "outcome": "Eliminate repetitive tasks across your entire operation",
+        "title": "Custom Software & Automation",
+        "outcome": "Tools and AI-powered workflows that remove repetitive manual work from your day",
         "size": "large"
       },
       {
         "id": "svc-2",
-        "title": "Lead Generation Systems",
-        "outcome": "Automated outreach, follow-up, and qualification — 24/7",
+        "title": "Website Design & Build",
+        "outcome": "Fast, modern websites that turn visitors into customers",
         "size": "small"
       },
       {
         "id": "svc-3",
-        "title": "Data Pipeline Automation",
-        "outcome": "Connect your tools and eliminate manual data entry forever",
+        "title": "SEO",
+        "outcome": "Get found by the people searching for what you offer",
         "size": "small"
       },
       {
         "id": "svc-4",
-        "title": "AI Customer Support",
-        "outcome": "Handle 80% of support tickets without a human",
-        "size": "medium"
+        "title": "Automated Review Collection",
+        "outcome": "Ask every happy customer for a review automatically",
+        "size": "small"
+      },
+      {
+        "id": "svc-6",
+        "title": "Online Booking & Ordering",
+        "outcome": "Let customers book, order and pay online any time",
+        "size": "small"
+      },
+      {
+        "id": "svc-7",
+        "title": "Customer Follow-Up (CRM)",
+        "outcome": "Keep every lead and customer organized and followed up",
+        "size": "small"
+      },
+      {
+        "id": "svc-8",
+        "title": "Website Care Plans",
+        "outcome": "Hosting, updates and support for one monthly fee",
+        "size": "small"
       },
       {
         "id": "svc-5",
-        "title": "Process Consulting",
-        "outcome": "Map, audit, and redesign your workflows for maximum efficiency",
-        "size": "medium"
+        "title": "Anything Else You Need",
+        "outcome": "Have a different problem? Tell us. If technology can solve it, we'll build it",
+        "size": "small"
       }
     ]
   },
   "tools": {
-    "label": "Our Tools",
-    "headline": "Built for Results. Ready to Deploy.",
+    "label": "How It Works",
+    "headline": "Simple From Start to Finish",
     "items": [
       {
-        "id": "tool-1",
-        "name": "FlowForge",
-        "description": "Visual workflow builder with 200+ integrations. Connect any tool, automate any process.",
-        "tag": "Workflow"
+        "id": "step-1",
+        "name": "Discover",
+        "description": "A free call to understand your business, your goals and what is slowing you down.",
+        "tag": "Step 1"
       },
       {
-        "id": "tool-2",
-        "name": "LeadBot Pro",
-        "description": "AI-powered lead qualification and outreach automation for B2B sales teams.",
-        "tag": "Sales"
+        "id": "step-2",
+        "name": "Plan",
+        "description": "A clear scope, timeline and price before any work begins. No surprises.",
+        "tag": "Step 2"
       },
       {
-        "id": "tool-3",
-        "name": "DataSync AI",
-        "description": "Real-time data synchronization across your entire tech stack. Zero manual entry.",
-        "tag": "Data"
+        "id": "step-3",
+        "name": "Build",
+        "description": "We design and build your solution and keep you updated along the way.",
+        "tag": "Step 3"
       },
       {
-        "id": "tool-4",
-        "name": "SupportAI",
-        "description": "Train an AI on your knowledge base and automate 80% of customer support tickets.",
-        "tag": "Support"
-      }
-    ]
-  },
-  "results": {
-    "label": "Proven Results",
-    "headline": "The Numbers Don't Lie",
-    "stats": [
-      {
-        "id": "res-1",
-        "value": "2.4M",
-        "prefix": "$",
-        "label": "Saved in labour costs",
-        "industry": "Retail & E-commerce"
-      },
-      {
-        "id": "res-2",
-        "value": "89",
-        "suffix": "%",
-        "label": "Reduction in manual data entry",
-        "industry": "Financial Services"
-      },
-      {
-        "id": "res-3",
-        "value": "14x",
-        "label": "ROI within 90 days",
-        "industry": "SaaS & Tech"
-      },
-      {
-        "id": "res-4",
-        "value": "3.2x",
-        "label": "Increase in lead conversion",
-        "industry": "Professional Services"
+        "id": "step-4",
+        "name": "Support",
+        "description": "After launch we stay available to fix, improve and grow what we built.",
+        "tag": "Step 4"
       }
     ]
   },
   "cta": {
-    "headline": "Ready to Stop Doing Work a Machine Can Do?",
-    "subheadline": "Book a free 30-minute discovery call. We'll map your biggest automation opportunity and show you exactly what's possible.",
+    "headline": "Let's Build What Your Business Needs",
+    "subheadline": "Book a free 30-minute call. Tell us what you're working on and we'll show you what's possible.",
     "ctaLabel": "Book Your Free Call",
-    "note": "No commitment. No sales pitch. Just a clear plan."
+    "note": "Try any service free for 3 months. No strings attached."
   }
 }

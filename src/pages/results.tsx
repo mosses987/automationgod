@@ -1,7 +1,7 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
+import Seo, { SITE_URL } from '@/components/Seo';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
-import { ArrowRight, CheckCircle, Clock } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { results } from 'virtual:content';
 
 const fadeUp = {
@@ -14,35 +14,60 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 } as const;
 
+// Add new projects to this list. The grid adjusts automatically.
+const projects = [
+  {
+    name: 'SRGC Developments Ltd',
+    url: 'https://srgcdevelopments.ca/',
+    host: 'srgcdevelopments.ca',
+    category: 'Construction',
+    image: '/project-images/hero.jpg',
+    summary:
+      'Website for an Ontario exterior finishing contractor, with a project gallery, service pages and a quote request form.',
+  },
+  {
+    name: 'FreightFlow',
+    url: '',
+    host: '',
+    category: 'Software',
+    image: '/project-images/freightflow.png',
+    summary:
+      'Data management app for logistics companies: import Excel files, then search, filter, edit and export records.',
+  },
+];
+
 export default function ResultsPage() {
   return (
     <>
-      <Helmet>
-        <title>Client Results &amp; Case Studies — Real ROI from AI Automation | Automation God</title>
-        <meta name="description" content="Real ROI from real Canadian clients. See how Automation God saved businesses thousands of hours and millions in labour costs through AI-powered automation systems." />
-        <meta property="og:title" content="Client Results &amp; Case Studies — Automation God" />
-        <meta property="og:description" content="Real ROI from real clients. Thousands of hours saved, millions in labour costs eliminated. See the case studies." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://automationgod.ca/results" />
-        <meta property="og:image" content="https://automationgod.ca/og-image.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://automationgod.ca/og-image.svg" />
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          '@id': 'https://automationgod.ca/results#webpage',
-          name: 'Client Results & Case Studies — Automation God',
-          url: 'https://automationgod.ca/results',
-          description: 'Real ROI from real Canadian clients. Case studies showing how AI automation systems save thousands of hours and millions in labour costs.',
-          isPartOf: { '@id': 'https://automationgod.ca/#website' },
-          about: { '@id': 'https://automationgod.ca/#organization' },
-        }).replace(/</g, '\u003c')}</script>
-      </Helmet>
+      <Seo
+        title="Projects: Websites & Software We've Built | Automation God"
+        description="Websites and software built by Automation God in Waterloo, Ontario, including a contractor website for SRGC Developments and a logistics data app."
+        path="/projects"
+        jsonLd={[
+          {
+            '@type': 'ItemList',
+            '@id': `${SITE_URL}/projects#projects`,
+            name: 'Projects',
+            itemListElement: projects.map((p, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              item: {
+                '@type': 'CreativeWork',
+                name: p.name,
+                description: p.summary,
+                ...(p.url ? { url: p.url } : {}),
+                image: `${SITE_URL}${p.image}`,
+                creator: { '@id': `${SITE_URL}/#organization` },
+              },
+            })),
+          },
+        ]}
+      />
 
       <main className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
 
         {/* ── Hero ── */}
-        <section className="relative pt-24 pb-16 px-6 overflow-hidden">
+        <section className="relative pt-12 md:pt-20 pb-10 md:pb-12 px-6 overflow-hidden">
           <div className="pointer-events-none absolute inset-0 flex items-start justify-center">
             <div className="w-[600px] h-[400px] rounded-full bg-primary/5 blur-[120px] mt-[-80px]" />
           </div>
@@ -74,162 +99,58 @@ export default function ResultsPage() {
           </div>
         </section>
 
-        {/* ── Aggregate Stats ── */}
-        <section className="py-16 px-6 border-y border-[hsl(var(--border))] bg-[hsl(var(--secondary))]">
+        {/* ── Projects grid ── */}
+        <section className="pb-12 md:pb-16 px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-60px' }}
             variants={stagger}
-            className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {results.stats.map((stat) => (
-              <motion.div key={stat.id} variants={fadeUp} className="text-center">
-                <div className="font-heading text-3xl md:text-4xl font-black text-primary mb-2">
-                  {stat.value}
+            {projects.map((p) => {
+              const Card = p.url ? motion.a : motion.div;
+              const linkProps = p.url
+                ? { href: p.url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': `Visit ${p.name} website` }
+                : {};
+              return (
+              <Card
+                key={p.name}
+                variants={fadeUp}
+                {...linkProps}
+                className="group flex flex-col rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-[hsl(var(--secondary))]">
+                  <img
+                    src={p.image}
+                    alt={`${p.name} website preview`}
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-[hsl(var(--background))]/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary backdrop-blur">
+                    {p.category}
+                  </span>
                 </div>
-                <div className="text-sm text-[hsl(var(--muted-foreground))] leading-snug">
-                  {stat.label}
+                <div className="flex flex-1 flex-col gap-2 p-5">
+                  <h2 className="font-heading text-lg font-bold text-white tracking-tight">{p.name}</h2>
+                  <p className="line-clamp-3 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">{p.summary}</p>
+                  <div className="mt-auto flex items-center justify-between pt-3">
+                    <span className="text-xs font-mono text-[hsl(var(--muted-foreground))]">{p.host || p.category}</span>
+                    {p.url && (
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                        Visit site <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              </Card>
+              );
+            })}
           </motion.div>
         </section>
 
-        {/* ── Case Studies ── */}
-        <section className="py-24 px-6">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="font-heading text-3xl md:text-4xl font-black text-white mb-16 text-center"
-            >
-              Case studies
-            </motion.h2>
-
-            <div className="flex flex-col gap-16">
-              {results.caseStudies.map((cs, idx) => (
-                <motion.article
-                  key={cs.id}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-60px' }}
-                  variants={stagger}
-                  className="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden"
-                >
-                  {/* Card header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-8 py-6 border-b border-[hsl(var(--border))]">
-                    <div className="flex items-center gap-4">
-                      <span className="text-xs font-semibold tracking-widest text-primary uppercase px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
-                        {cs.industry}
-                      </span>
-                      <motion.h3 variants={fadeUp} className="text-lg font-semibold text-white">
-                        {cs.company}
-                      </motion.h3>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-[hsl(var(--muted-foreground))]">
-                      <Clock className="h-4 w-4 text-primary shrink-0" />
-                      <span>{cs.timeframe}</span>
-                    </div>
-                  </div>
-
-                  {/* Card body */}
-                  <div className="grid md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-[hsl(var(--border))]">
-                    <div className="px-8 py-8 flex flex-col gap-6">
-                      <div>
-                        <p className="text-xs font-semibold tracking-widest text-[hsl(var(--muted-foreground))] uppercase mb-2">
-                          The challenge
-                        </p>
-                        <motion.p variants={fadeUp} className="text-[hsl(var(--muted-foreground))] leading-relaxed text-sm">
-                          {cs.challenge}
-                        </motion.p>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold tracking-widest text-[hsl(var(--muted-foreground))] uppercase mb-2">
-                          The solution
-                        </p>
-                        <motion.p variants={fadeUp} className="text-[hsl(var(--muted-foreground))] leading-relaxed text-sm">
-                          {cs.solution}
-                        </motion.p>
-                      </div>
-                    </div>
-
-                    <div className="px-8 py-8">
-                      <p className="text-xs font-semibold tracking-widest text-[hsl(var(--muted-foreground))] uppercase mb-6">
-                        The results
-                      </p>
-                      <motion.ul variants={stagger} className="flex flex-col gap-5">
-                        {cs.results.map((r) => (
-                          <motion.li key={r.id} variants={fadeUp} className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                            <div>
-                              <span className="font-heading font-bold text-white text-lg leading-tight block">
-                                {r.metric}
-                              </span>
-                              <span className="text-sm text-[hsl(var(--muted-foreground))]">
-                                {r.description}
-                              </span>
-                            </div>
-                          </motion.li>
-                        ))}
-                      </motion.ul>
-                    </div>
-                  </div>
-
-                  <div className="px-8 py-4 border-t border-[hsl(var(--border))] flex justify-end">
-                    <span className="text-xs text-[hsl(var(--muted-foreground))]">
-                      Case {String(idx + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Testimonials ── */}
-        <section className="py-20 px-6 bg-[hsl(var(--secondary))] border-y border-[hsl(var(--border))]">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="font-heading text-2xl md:text-3xl font-black text-white mb-12 text-center"
-            >
-              In their own words
-            </motion.h2>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={stagger}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            >
-              {results.testimonials.map((t) => (
-                <motion.blockquote
-                  key={t.id}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-8 flex flex-col gap-6"
-                >
-                  <span className="text-5xl font-heading text-primary/30 leading-none select-none">&ldquo;</span>
-                  <p className="text-[hsl(var(--foreground))] leading-relaxed -mt-4">
-                    {t.quote}
-                  </p>
-                  <footer className="mt-auto pt-4 border-t border-[hsl(var(--border))]">
-                    <p className="text-sm font-semibold text-white">{t.author}</p>
-                    <p className="text-xs text-[hsl(var(--muted-foreground))]">{t.company}</p>
-                  </footer>
-                </motion.blockquote>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
         {/* ── CTA ── */}
-        <section className="py-24 px-6">
+        <section className="py-12 md:py-16 px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"

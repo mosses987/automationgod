@@ -17,8 +17,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <CartProvider>
       <Website>
         <Helmet>
-          <title>Automation God — AI &amp; Automation Systems for Canadian SMBs</title>
-          <meta name="description" content="Automation God builds AI-powered automation systems that eliminate manual work, cut costs, and scale Canadian SMBs without adding headcount." />
+          <title>Waterloo Web Design, SEO &amp; Custom Software | Automation God</title>
+          <meta name="description" content="Websites, SEO, custom software, automated reviews and AI automation from one Waterloo, Ontario partner." />
         </Helmet>
         <HomepageSameAsJsonLd />
         <ScrollRestoration />

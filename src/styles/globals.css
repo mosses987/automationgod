@@ -93,7 +93,12 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
+    overflow-x: clip;
     @apply bg-background text-foreground font-sans;
   
     font-family: var(--font-sans);

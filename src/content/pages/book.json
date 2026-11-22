@@ -1,21 +1,21 @@
 {
   "hero": {
     "eyebrow": "Free 30-minute call",
-    "headline": "Let's map out your automation.",
-    "subheadline": "Tell us about your business and we'll show you exactly where automation can save you time and money. No pitch. No fluff. Just a clear plan."
+    "headline": "Let's plan what your business needs.",
+    "subheadline": "Tell us about your business and what you need, whether it's a website, SEO, software or automation. We'll show you exactly what's possible. No pitch. Just a clear plan."
   },
   "whatToExpect": {
     "heading": "What to expect",
     "items": [
       {
         "id": "e1",
-        "title": "Audit your current workflow",
-        "description": "We'll identify where your team is losing the most time to manual, repetitive work."
+        "title": "Understand your business",
+        "description": "We'll learn how you work today and where you're losing time, customers or visibility."
       },
       {
         "id": "e2",
-        "title": "Map your automation opportunities",
-        "description": "You'll leave with a prioritized list of automations ranked by ROI and implementation speed."
+        "title": "Get a clear plan",
+        "description": "You'll leave with a prioritized list of what to build or fix first, and what it would take."
       },
       {
         "id": "e3",
@@ -33,8 +33,8 @@
       "companyPlaceholder": "Company name",
       "rolePlaceholder": "e.g. Founder, Operations Manager",
       "teamSizeLabel": "Team size",
-      "goalLabel": "What's your biggest operational bottleneck right now?",
-      "goalPlaceholder": "e.g. We spend 20 hours a week manually updating spreadsheets..."
+      "goalLabel": "What do you need help with?",
+      "goalPlaceholder": "e.g. A new website, more Google reviews, an online booking system..."
     },
     "submitText": "Request my discovery call",
     "submittingText": "Sending...",

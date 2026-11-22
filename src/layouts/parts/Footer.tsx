@@ -6,8 +6,7 @@ export default function Footer() {
 
   const links = [
     { href: '/services', label: 'Services' },
-    { href: '/tools', label: 'Tools' },
-    { href: '/results', label: 'Results' },
+    { href: '/projects', label: 'Projects' },
     { href: '/book', label: 'Book a Call' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -28,7 +27,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-              AI & automation tools that eliminate waste, cut costs, and scale your business without hiring more people.
+              Websites, SEO, custom software, automated reviews and automation for your business. Based in Waterloo, Ontario.
             </p>
             <span className="text-xs text-primary/60 tracking-widest uppercase font-mono">
               Powered by AI

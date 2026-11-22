@@ -31,11 +31,9 @@ export interface SeoRoute {
 }
 
 export const seoRoutes: SeoRoute[] = [
-  { path: "/", changefreq: "weekly", priority: 1.0 },
-  { path: "/services", changefreq: "monthly", priority: 0.9 },
-  { path: "/tools", changefreq: "weekly", priority: 0.9 },
-  { path: "/results", changefreq: "monthly", priority: 0.8 },
-  { path: "/book", changefreq: "monthly", priority: 0.8 },
-  { path: "/contact", changefreq: "monthly", priority: 0.7 },
-  // /cart, /checkout/success, /checkout/cancel excluded — transactional, not crawlable
+  { path: "/", changefreq: "weekly", priority: 1.0, lastmod: "2026-11-22" },
+  { path: "/services", changefreq: "monthly", priority: 0.9, lastmod: "2026-11-22" },
+  { path: "/projects", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-22" },
+  { path: "/book", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-22" },
+  { path: "/contact", changefreq: "monthly", priority: 0.7, lastmod: "2026-11-22" },
 ];
