@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import { Zap } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-3 max-w-xs">
             <div className="flex items-center gap-2">
-              <Zap className="h-5 w-5 text-primary" />
+              <img src="/brand/logo-mark-180.png" alt="" width={32} height={32} className="h-8 w-8 rounded-full" />
               <span className="font-heading font-black text-base tracking-widest text-white uppercase">
                 Automation<span className="text-primary">God</span>
               </span>

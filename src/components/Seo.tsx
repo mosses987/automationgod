@@ -10,7 +10,7 @@ export const organizationJsonLd = {
   '@id': `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
-  logo: OG_IMAGE,
+  logo: `${SITE_URL}/brand/logo-mark.png`,
   image: OG_IMAGE,
   email: 'mosses@automationgod.ca',
   description:

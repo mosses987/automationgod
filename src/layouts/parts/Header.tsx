@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Header() {
@@ -17,23 +17,16 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-[hsl(var(--border))] bg-[hsl(var(--background))]/90 backdrop-blur-md">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
+        <Link to="/" aria-label="Automation God home" className="flex items-center gap-2.5 shrink-0">
           <img
-            src="/brand/logo.png"
-            alt="Automation God"
-            className="block h-auto max-h-10 w-auto max-w-[180px] object-contain self-center"
-            onError={(e) => {
-              const target = e.currentTarget;
-              target.style.display = 'none';
-              const fallback = target.nextElementSibling as HTMLElement | null;
-              if (fallback) fallback.style.display = 'flex';
-            }}
+            src="/brand/logo-mark-180.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full"
           />
-          <span className="hidden items-center gap-2" style={{ display: 'none' }}>
-            <Zap className="h-6 w-6 text-primary" />
-            <span className="font-heading font-black text-lg tracking-widest text-white uppercase">
-              Automation<span className="text-primary">God</span>
-            </span>
+          <span className="font-heading font-black text-base sm:text-lg tracking-widest text-white uppercase">
+            Automation<span className="text-primary">God</span>
           </span>
         </Link>
 
