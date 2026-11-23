@@ -2,14 +2,14 @@
   "hero": {
     "headline": "Everything Your Business Needs.",
     "headlineAccent": "Built in One Place.",
-    "subheadline": "Websites, custom software, workflow automation, AI assistants, automated reviews and SEO. One partner in Waterloo, Ontario that takes care of your digital work from start to finish. Try any service free for 3 months, no strings attached.",
+    "subheadline": "Websites, custom software, workflow automation, AI assistants, automated reviews and SEO. One partner in Waterloo, Ontario that takes care of your digital work from start to finish. All services free for your first 3 months, no strings attached.",
     "ctaPrimary": "Book a Free Call",
     "ctaSecondary": "See Our Services",
     "stats": [
       {
         "id": "stat-1",
         "value": "Free",
-        "label": "First 3 months on any service"
+        "label": "First 3 months on all services"
       },
       {
         "id": "stat-2",
@@ -117,6 +117,6 @@
     "headline": "Let's Build What Your Business Needs",
     "subheadline": "Book a free 30-minute call. Tell us what you're working on and we'll show you what's possible.",
     "ctaLabel": "Book Your Free Call",
-    "note": "Try any service free for 3 months. No strings attached."
+    "note": "All services free for your first 3 months. Refer a business for 6 more months free."
   }
 }

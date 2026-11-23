@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Web Design, SEO & Custom Software Services | Automation God",
-    "description": "Website design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO in Waterloo, Ontario. Try any service free for 3 months."
+    "description": "Website design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO in Waterloo, Ontario. All services free for your first 3 months."
   },
   "hero": {
     "label": "What We Do",
     "headline": "Everything Your Business Needs, in One Place.",
-    "subheadline": "From websites and custom software to workflow automation and AI assistants, we handle the digital work so you can focus on running your business. Try any service free for 3 months, no strings attached."
+    "subheadline": "From websites and custom software to workflow automation and AI assistants, we handle the digital work so you can focus on running your business. All services free for your first 3 months, no strings attached."
   },
   "services": [
     {
@@ -169,23 +169,23 @@
   ],
   "pricing": {
     "label": "Our Offer",
-    "headline": "Try Any Service Free for 3 Months.",
-    "subheadline": "No strings attached. Every project is scoped to your needs, so book a call and we'll agree on exactly what's included. Already a client? Refer another business and get 6 months free on your service.",
+    "headline": "All Services Free for 3 Months.",
+    "subheadline": "No strings attached. Every project is scoped to your needs, so book a call and we'll agree on exactly what's included. Refer another business and get an extra 6 months free on top of your first 3.",
     "tiers": [
       {
         "id": "tier-free",
         "name": "3 Months Free",
         "price": "$0",
         "period": "for 3 months",
-        "tagline": "Any service. No strings attached.",
-        "description": "Pick any service and use it free for three months. If it's not for you, walk away.",
+        "tagline": "Every service. No strings attached.",
+        "description": "Use any or all of our services free for your first three months. If it's not for you, walk away.",
         "features": [
-          "Choose any service we offer",
+          "Every service we offer is included",
           "Free consultation and plan",
           "No contract, no commitment",
           "Cancel anytime",
           "Clear quote if you decide to continue",
-          "Refer a business and get 6 months free"
+          "Refer a business: get 6 extra months free"
         ],
         "cta": "Claim Your 3 Free Months",
         "highlighted": true

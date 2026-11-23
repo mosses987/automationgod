@@ -35,11 +35,11 @@ const fadeUp = {
 const faqs = [
   {
     q: 'How does the 3-month free offer work?',
-    a: "Pick any service and we deliver it free for the first three months. There's no contract and no commitment. Before we start, we agree on exactly what's included, so there are no surprises. After three months you can continue with a clear quote, or walk away.",
+    a: "Every service we offer is free for your first three months, whether you need one or several. There's no contract and no commitment. Before we start, we agree on exactly what's included, so there are no surprises. After three months you can continue with a clear quote, or walk away.",
   },
   {
     q: 'Do you have a referral program?',
-    a: "Yes. If you're a client and you refer another business that signs up, you get 6 months free on your service. The business you refer still gets its own first 3 months free.",
+    a: "Yes. If you're a client and you refer another business that signs up, you get an extra 6 months free, on top of your first 3 months. The business you refer gets its own first 3 months free too.",
   },
   {
     q: 'What services do you offer?',
@@ -99,7 +99,7 @@ export default function ServicesPage() {
           },
           {
             '@type': 'Offer',
-            name: 'Try any service free for 3 months',
+            name: 'All services free for 3 months; refer a business for 6 extra months free',
             price: '0',
             priceCurrency: 'CAD',
             offeredBy: { '@id': `${SITE_URL}/#organization` },

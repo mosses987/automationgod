@@ -93,7 +93,7 @@ export default function HomePage() {
     <>
       <Seo
         title="Waterloo Web Design, SEO & Custom Software | Automation God"
-        description="Websites, SEO, custom software and automation for businesses in Waterloo, Kitchener and across Ontario. Try any service free for 3 months."
+        description="Websites, SEO, custom software and automation for businesses in Waterloo, Kitchener and across Ontario. All services free for your first 3 months."
         path="/"
       />
 
