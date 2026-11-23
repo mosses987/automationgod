@@ -2,7 +2,7 @@
   "hero": {
     "headline": "Everything Your Business Needs.",
     "headlineAccent": "Built in One Place.",
-    "subheadline": "Websites, SEO, custom software, automated reviews and AI automation. One partner in Waterloo, Ontario that takes care of your digital work from start to finish. Try any service free for 3 months, no strings attached.",
+    "subheadline": "Websites, custom software, workflow automation, AI assistants, automated reviews and SEO. One partner in Waterloo, Ontario that takes care of your digital work from start to finish. Try any service free for 3 months, no strings attached.",
     "ctaPrimary": "Book a Free Call",
     "ctaSecondary": "See Our Services",
     "stats": [
@@ -23,8 +23,8 @@
       },
       {
         "id": "stat-4",
-        "value": "Waterloo",
-        "label": "Ontario-based, easy to reach"
+        "value": "AI",
+        "label": "Assistants & Automation"
       }
     ]
   },
@@ -35,8 +35,8 @@
     "items": [
       {
         "id": "svc-1",
-        "title": "Custom Software & Automation",
-        "outcome": "Tools and AI-powered workflows that remove repetitive manual work from your day",
+        "title": "Custom Software",
+        "outcome": "Tools, portals and dashboards built around how your business actually works",
         "size": "large"
       },
       {
@@ -46,15 +46,15 @@
         "size": "small"
       },
       {
-        "id": "svc-3",
-        "title": "SEO",
-        "outcome": "Get found by the people searching for what you offer",
+        "id": "svc-9",
+        "title": "Workflow Automation",
+        "outcome": "Let follow-ups, data entry, invoices and reports run themselves",
         "size": "small"
       },
       {
-        "id": "svc-4",
-        "title": "Automated Review Collection",
-        "outcome": "Ask every happy customer for a review automatically",
+        "id": "svc-10",
+        "title": "AI Assistants & Chatbots",
+        "outcome": "Answer customers, capture leads and book appointments 24/7",
         "size": "small"
       },
       {
@@ -70,15 +70,15 @@
         "size": "small"
       },
       {
-        "id": "svc-8",
-        "title": "Website Care Plans",
-        "outcome": "Hosting, updates and support for one monthly fee",
+        "id": "svc-4",
+        "title": "Automated Review Collection",
+        "outcome": "Ask every happy customer for a review automatically",
         "size": "small"
       },
       {
-        "id": "svc-5",
-        "title": "Anything Else You Need",
-        "outcome": "Have a different problem? Tell us. If technology can solve it, we'll build it",
+        "id": "svc-3",
+        "title": "SEO",
+        "outcome": "Get found by the people searching for what you offer",
         "size": "small"
       }
     ]

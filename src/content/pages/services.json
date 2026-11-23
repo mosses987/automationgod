@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Web Design, SEO & Custom Software Services | Automation God",
-    "description": "Website design, SEO, custom software, online booking, CRM, review automation and website care in Waterloo, Ontario. Try any service free for 3 months."
+    "description": "Website design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO in Waterloo, Ontario. Try any service free for 3 months."
   },
   "hero": {
     "label": "What We Do",
     "headline": "Everything Your Business Needs, in One Place.",
-    "subheadline": "From a new website to custom software, we handle the digital work so you can focus on running your business. Try any service free for 3 months, no strings attached."
+    "subheadline": "From websites and custom software to workflow automation and AI assistants, we handle the digital work so you can focus on running your business. Try any service free for 3 months, no strings attached."
   },
   "services": [
     {
@@ -26,22 +26,6 @@
       "icon": "globe"
     },
     {
-      "id": "svc-seo",
-      "slug": "seo",
-      "title": "SEO",
-      "tagline": "Get found by people searching for what you offer.",
-      "description": "We improve your site and online presence so you show up when customers search, and make sure the basics like Google Business Profile, page speed and content are done properly.",
-      "useCases": [
-        "Keyword and competitor research",
-        "On-page and technical SEO",
-        "Google Business Profile setup",
-        "Content that ranks",
-        "Monthly progress reporting"
-      ],
-      "outcome": "More visibility where your customers are searching",
-      "icon": "search"
-    },
-    {
       "id": "svc-software",
       "slug": "custom-software",
       "title": "Custom Software",
@@ -58,35 +42,36 @@
       "icon": "code"
     },
     {
-      "id": "svc-reviews",
-      "slug": "automated-reviews",
-      "title": "Automated Review Collection",
-      "tagline": "Turn happy customers into 5-star reviews, automatically.",
-      "description": "After each job or sale, your customers get a friendly, well-timed request to leave a review. We set it up once and it runs on its own.",
-      "useCases": [
-        "Automatic review requests by text or email",
-        "Google review link setup",
-        "Private feedback for unhappy customers",
-        "Review monitoring and alerts"
-      ],
-      "outcome": "A steady stream of reviews without chasing anyone",
-      "icon": "star"
-    },
-    {
-      "id": "svc-automation",
-      "slug": "ai-automation",
-      "title": "AI & Workflow Automation",
-      "tagline": "Replace repetitive tasks with systems that run themselves.",
-      "description": "We find the manual work slowing you down and automate it: follow-ups, data entry, reports, customer questions and more.",
+      "id": "svc-workflow",
+      "slug": "workflow-automation",
+      "title": "Workflow Automation",
+      "tagline": "Let repetitive tasks run themselves.",
+      "description": "We map how work moves through your business and automate the repetitive steps: follow-ups, data entry, quotes, invoices, reports and handoffs between the apps you already use.",
       "useCases": [
         "Automated follow-ups and reminders",
-        "AI chat for common customer questions",
-        "Data sync between your tools",
-        "Report and invoice automation",
+        "Quote and invoice generation",
+        "Data sync between your apps",
+        "Scheduled reports and alerts",
         "Lead capture and routing"
       ],
-      "outcome": "Less manual work, fewer mistakes",
-      "icon": "zap"
+      "outcome": "Less manual work and fewer mistakes",
+      "icon": "workflow"
+    },
+    {
+      "id": "svc-ai",
+      "slug": "ai-assistants",
+      "title": "AI Assistants & Chatbots",
+      "tagline": "Answer customers instantly, day or night.",
+      "description": "We build AI assistants trained on your own business information. On your website they answer common questions, capture leads and book appointments. Inside your business they help your team find information and draft emails and documents.",
+      "useCases": [
+        "Website chat assistant trained on your business",
+        "Lead capture and appointment booking",
+        "Answers about services, hours and pricing",
+        "Internal assistant for your team's documents",
+        "Email and document drafting"
+      ],
+      "outcome": "Customers get answers even when you're busy",
+      "icon": "bot"
     },
     {
       "id": "svc-booking",
@@ -121,6 +106,21 @@
       "icon": "users"
     },
     {
+      "id": "svc-reviews",
+      "slug": "automated-reviews",
+      "title": "Automated Review Collection",
+      "tagline": "Turn happy customers into 5-star reviews, automatically.",
+      "description": "After each job or sale, your customers get a friendly, well-timed request to leave a review. We set it up once and it runs on its own.",
+      "useCases": [
+        "Automatic review requests by text or email",
+        "Google review link setup",
+        "Private feedback for unhappy customers",
+        "Review monitoring and alerts"
+      ],
+      "outcome": "A steady stream of reviews without chasing anyone",
+      "icon": "star"
+    },
+    {
       "id": "svc-care",
       "slug": "website-care-plans",
       "title": "Website Care Plans",
@@ -149,6 +149,22 @@
       ],
       "outcome": "A clear plan before any work begins",
       "icon": "map"
+    },
+    {
+      "id": "svc-seo",
+      "slug": "seo",
+      "title": "SEO",
+      "tagline": "Get found by people searching for what you offer.",
+      "description": "We improve your site and online presence so you show up when customers search, and make sure the basics like Google Business Profile, page speed and content are done properly.",
+      "useCases": [
+        "Keyword and competitor research",
+        "On-page and technical SEO",
+        "Google Business Profile setup",
+        "Content that ranks",
+        "Monthly progress reporting"
+      ],
+      "outcome": "More visibility where your customers are searching",
+      "icon": "search"
     }
   ],
   "pricing": {

@@ -1,11 +1,13 @@
 import Seo, { SITE_URL } from '@/components/Seo';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
-import { Zap, Map, Globe, Search, Code, Star, CalendarCheck, Users, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Zap, Map, Globe, Search, Code, Star, CalendarCheck, Users, ShieldCheck, Workflow, Bot, CheckCircle2 } from 'lucide-react';
 import { services } from 'virtual:content';
 
 const iconMap: Record<string, React.ReactNode> = {
   zap: <Zap className="h-6 w-6 text-primary" />,
+  workflow: <Workflow className="h-6 w-6 text-primary" />,
+  bot: <Bot className="h-6 w-6 text-primary" />,
   globe: <Globe className="h-6 w-6 text-primary" />,
   search: <Search className="h-6 w-6 text-primary" />,
   code: <Code className="h-6 w-6 text-primary" />,
@@ -37,7 +39,7 @@ const faqs = [
   },
   {
     q: 'What services do you offer?',
-    a: 'Website design and build, SEO, custom software, online booking and ordering, customer management and follow-up (CRM), automated review collection, AI and workflow automation, and website care plans. If you need something else, ask us.',
+    a: 'Website design and build, custom software, workflow automation, AI assistants and chatbots, online booking and ordering, customer management and follow-up (CRM), automated review collection, website care plans and SEO. If you need something else, ask us.',
   },
   {
     q: 'Do you only work with businesses in Waterloo?',

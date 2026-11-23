@@ -14,7 +14,7 @@ export const organizationJsonLd = {
   image: OG_IMAGE,
   email: 'mosses@automationgod.ca',
   description:
-    'Web design, SEO, custom software, online booking, CRM, review automation and AI automation for businesses in Waterloo, Ontario.',
+    'Web design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO for businesses in Waterloo, Ontario.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Waterloo',
@@ -29,12 +29,14 @@ export const organizationJsonLd = {
   ],
   knowsAbout: [
     'Website Design',
-    'Search Engine Optimization',
     'Custom Software Development',
+    'Workflow Automation',
+    'AI Assistants',
+    'Chatbots',
     'Online Booking Systems',
     'CRM',
     'Review Automation',
-    'AI Automation',
+    'Search Engine Optimization',
   ],
 };
 
