@@ -170,7 +170,7 @@
   "pricing": {
     "label": "Our Offer",
     "headline": "Try Any Service Free for 3 Months.",
-    "subheadline": "No strings attached. Every project is scoped to your needs, so book a call and we'll agree on exactly what's included.",
+    "subheadline": "No strings attached. Every project is scoped to your needs, so book a call and we'll agree on exactly what's included. Already a client? Refer another business and get 6 months free on your service.",
     "tiers": [
       {
         "id": "tier-free",
@@ -184,7 +184,8 @@
           "Free consultation and plan",
           "No contract, no commitment",
           "Cancel anytime",
-          "Clear quote if you decide to continue"
+          "Clear quote if you decide to continue",
+          "Refer a business and get 6 months free"
         ],
         "cta": "Claim Your 3 Free Months",
         "highlighted": true

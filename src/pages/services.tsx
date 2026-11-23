@@ -38,6 +38,10 @@ const faqs = [
     a: "Pick any service and we deliver it free for the first three months. There's no contract and no commitment. Before we start, we agree on exactly what's included, so there are no surprises. After three months you can continue with a clear quote, or walk away.",
   },
   {
+    q: 'Do you have a referral program?',
+    a: "Yes. If you're a client and you refer another business that signs up, you get 6 months free on your service. The business you refer still gets its own first 3 months free.",
+  },
+  {
     q: 'What services do you offer?',
     a: 'Website design and build, custom software, workflow automation, AI assistants and chatbots, online booking and ordering, customer management and follow-up (CRM), automated review collection, website care plans and SEO. If you need something else, ask us.',
   },
