@@ -70,6 +70,7 @@ export default function ServicesPage() {
         title={services.meta.title}
         description={services.meta.description}
         path="/services"
+        crumbs={[{ name: 'Services', path: '/services' }]}
         jsonLd={[
           {
             '@type': 'ItemList',
@@ -126,11 +127,11 @@ export default function ServicesPage() {
             <motion.div initial="hidden" animate="visible" className="flex flex-col gap-6">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3">
                 <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">{services.hero.label}</span>
+                <h1 className="text-xs font-mono tracking-widest text-primary uppercase">Web Design, Software &amp; AI Automation Services in Ontario</h1>
               </motion.div>
-              <motion.h1 variants={fadeUp} custom={1} className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl break-words font-black text-white tracking-tight leading-[0.95]">
+              <motion.p variants={fadeUp} custom={1} className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl break-words font-black text-white tracking-tight leading-[0.95]">
                 {services.hero.headline}
-              </motion.h1>
+              </motion.p>
               <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-[hsl(var(--muted-foreground))] max-w-2xl leading-relaxed">
                 {services.hero.subheadline}
               </motion.p>
@@ -187,12 +188,22 @@ export default function ServicesPage() {
                         ))}
                       </ul>
                       <div className="mt-auto pt-6">
-                        <Link
-                          to="/book"
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-primary tracking-wide hover:underline underline-offset-4 transition-all"
-                        >
-                          Discuss this service →
-                        </Link>
+                        <div className="flex flex-wrap gap-x-6 gap-y-2">
+                          {svc.slug !== 'anything-else' && (
+                            <Link
+                              to={`/services/${svc.slug}`}
+                              className="inline-flex items-center gap-2 text-sm font-semibold text-primary tracking-wide hover:underline underline-offset-4 transition-all"
+                            >
+                              Learn more about {svc.title} →
+                            </Link>
+                          )}
+                          <Link
+                            to="/book"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--muted-foreground))] tracking-wide hover:text-primary hover:underline underline-offset-4 transition-all"
+                          >
+                            Discuss this service
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

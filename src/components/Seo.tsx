@@ -13,8 +13,9 @@ export const organizationJsonLd = {
   logo: `${SITE_URL}/brand/logo-mark.png`,
   image: OG_IMAGE,
   email: 'mosses@automationgod.ca',
+  // ADD: telephone: '+1-XXX-XXX-XXXX' once you have a business number (must match Google Business Profile).
   description:
-    'Web design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO for businesses in Waterloo, Ontario.',
+    'Website design, custom software, workflow automation, AI assistants, online booking, CRM, review automation and SEO for businesses in Waterloo and across Ontario.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Waterloo',
@@ -25,6 +26,11 @@ export const organizationJsonLd = {
     { '@type': 'City', name: 'Waterloo' },
     { '@type': 'City', name: 'Kitchener' },
     { '@type': 'City', name: 'Cambridge' },
+    { '@type': 'City', name: 'Guelph' },
+    { '@type': 'City', name: 'Toronto' },
+    { '@type': 'City', name: 'Hamilton' },
+    { '@type': 'City', name: 'London' },
+    { '@type': 'City', name: 'Ottawa' },
     { '@type': 'AdministrativeArea', name: 'Ontario' },
   ],
   knowsAbout: [
@@ -40,17 +46,41 @@ export const organizationJsonLd = {
   ],
 };
 
+export interface Crumb {
+  name: string;
+  path: string;
+}
+
 interface SeoProps {
   title: string;
   description: string;
   /** Path starting with "/", e.g. "/services". */
   path: string;
+  /** Breadcrumb trail after Home, e.g. [{ name: 'Services', path: '/services' }]. */
+  crumbs?: Crumb[];
   /** Extra JSON-LD nodes for this page (merged into one @graph). */
   jsonLd?: Record<string, unknown>[];
 }
 
-export default function Seo({ title, description, path, jsonLd = [] }: SeoProps) {
-  const url = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
+const abs = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
+
+export default function Seo({ title, description, path, crumbs = [], jsonLd = [] }: SeoProps) {
+  const url = abs(path);
+  const breadcrumb =
+    crumbs.length > 0
+      ? [
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${url}#breadcrumb`,
+            itemListElement: [{ name: 'Home', path: '/' }, ...crumbs].map((c, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: c.name,
+              item: abs(c.path),
+            })),
+          },
+        ]
+      : [];
   const graph = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -72,7 +102,9 @@ export default function Seo({ title, description, path, jsonLd = [] }: SeoProps)
         inLanguage: 'en-CA',
         isPartOf: { '@id': `${SITE_URL}/#website` },
         about: { '@id': `${SITE_URL}/#organization` },
+        ...(breadcrumb.length ? { breadcrumb: { '@id': `${url}#breadcrumb` } } : {}),
       },
+      ...breadcrumb,
       ...jsonLd,
     ],
   };
@@ -90,7 +122,7 @@ export default function Seo({ title, description, path, jsonLd = [] }: SeoProps)
       <meta property="og:image" content={OG_IMAGE} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Automation God: Web Design, SEO, Custom Software & Automation in Waterloo, Ontario" />
+      <meta property="og:image:alt" content="Automation God: web design, custom software and AI automation in Waterloo, Ontario" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

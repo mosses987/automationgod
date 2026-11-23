@@ -31,9 +31,18 @@ export interface SeoRoute {
 }
 
 export const seoRoutes: SeoRoute[] = [
-  { path: "/", changefreq: "weekly", priority: 1.0, lastmod: "2026-11-22" },
-  { path: "/services", changefreq: "monthly", priority: 0.9, lastmod: "2026-11-22" },
-  { path: "/projects", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-22" },
-  { path: "/book", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-22" },
-  { path: "/contact", changefreq: "monthly", priority: 0.7, lastmod: "2026-11-22" },
+  { path: "/", changefreq: "weekly", priority: 1.0, lastmod: "2026-11-23" },
+  { path: "/services", changefreq: "monthly", priority: 0.9, lastmod: "2026-11-23" },
+  { path: "/services/website-design", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/custom-software", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/workflow-automation", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/ai-assistants", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/booking-and-ordering", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/crm-and-follow-up", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/automated-reviews", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/website-care-plans", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/services/seo", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/projects", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/book", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/contact", changefreq: "monthly", priority: 0.7, lastmod: "2026-11-23" },
 ];

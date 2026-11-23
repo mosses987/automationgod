@@ -12,13 +12,14 @@
  * It also writes sitemap.xml and llms.txt. Deploy the dist/client folder.
  */
 import { spawn } from 'node:child_process';
-import { writeFileSync, rmSync, existsSync } from 'node:fs';
+import { writeFileSync, rmSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const SITE_HOST = 'automationgod.ca';
 const PORT = 4789;
-const ROUTES = ['/', '/services', '/projects', '/book', '/contact'];
+// Pages come from the server's sitemap; these extra pages are not in it.
+const EXTRA_ROUTES = ['/privacy'];
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = join(root, 'dist', 'client');
@@ -63,13 +64,19 @@ try {
   await waitForServer();
 
   // The SPA shell is no longer needed as index.html: "/" gets the rendered home page.
+  const sitemap = await (await get('/sitemap.xml')).text();
+  const ROUTES = [
+    ...[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname),
+    ...EXTRA_ROUTES,
+  ];
   for (const route of ROUTES) {
     const res = await get(route);
     if (res.status !== 200) throw new Error(`${route} returned ${res.status}`);
     const html = await res.text();
     const file = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
+    mkdirSync(dirname(join(outDir, file)), { recursive: true });
     writeFileSync(join(outDir, file), html);
-    console.log(`  ✓ ${route.padEnd(10)} -> ${file}`);
+    console.log(`  ✓ ${route.padEnd(34)} -> ${file}`);
   }
 
   const notFound = await get('/__not-found__');

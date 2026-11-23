@@ -8,6 +8,19 @@ export default function Footer() {
     { href: '/projects', label: 'Projects' },
     { href: '/book', label: 'Book a Call' },
     { href: '/contact', label: 'Contact' },
+    { href: '/privacy', label: 'Privacy' },
+  ];
+
+  const serviceLinks = [
+    { href: '/services/website-design', label: 'Website Design' },
+    { href: '/services/custom-software', label: 'Custom Software' },
+    { href: '/services/workflow-automation', label: 'Workflow Automation' },
+    { href: '/services/ai-assistants', label: 'AI Assistants & Chatbots' },
+    { href: '/services/booking-and-ordering', label: 'Online Booking' },
+    { href: '/services/crm-and-follow-up', label: 'CRM & Follow-Up' },
+    { href: '/services/automated-reviews', label: 'Review Automation' },
+    { href: '/services/website-care-plans', label: 'Website Care Plans' },
+    { href: '/services/seo', label: 'SEO' },
   ];
 
   return (
@@ -26,7 +39,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
-              Websites, SEO, custom software, automated reviews and automation for your business. Based in Waterloo, Ontario.
+              Websites, custom software, workflow automation, AI assistants, reviews and SEO for your business. Based in Waterloo, serving all of Ontario.
             </p>
             <span className="text-xs text-primary/60 tracking-widest uppercase font-mono">
               Powered by AI
@@ -46,6 +59,23 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        {/* Services */}
+        <nav aria-label="Services" className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+          {serviceLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-xs text-[hsl(var(--muted-foreground))] hover:text-primary transition-colors duration-200"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <p className="mt-4 text-xs text-[hsl(var(--muted-foreground))]">
+          Serving Waterloo, Kitchener, Cambridge, Guelph, Toronto, Hamilton, London, Ottawa and all of Ontario ·{' '}
+          <a href="mailto:mosses@automationgod.ca" className="hover:text-primary">mosses@automationgod.ca</a>
+        </p>
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[hsl(var(--border))] flex flex-col md:flex-row justify-between items-center gap-3">

@@ -68,6 +68,7 @@ export default function BookPage() {
         title="Book a Free Discovery Call | Automation God"
         description="Book a free 30-minute call with Automation God. Tell us what your business needs (a website, SEO, software or automation) and get a clear plan."
         path="/book"
+        crumbs={[{ name: 'Book a Call', path: '/book' }]}
       />
 
       <main className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">

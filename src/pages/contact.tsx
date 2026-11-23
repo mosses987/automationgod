@@ -59,6 +59,7 @@ export default function ContactPage() {
         title="Contact Automation God | Waterloo, Ontario"
         description="Contact Automation God in Waterloo, Ontario about websites, SEO, custom software or automation. Email mosses@automationgod.ca. We reply within one business day."
         path="/contact"
+        crumbs={[{ name: 'Contact', path: '/contact' }]}
       />
 
       <main className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">

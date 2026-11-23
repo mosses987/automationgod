@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { motion, useInView } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { home } from 'virtual:content';
+import ServiceArea from '@/components/ServiceArea';
 
 // ── Animated counter hook ─────────────────────────────────────────────────────
 function useCounter(target: string, inView: boolean) {
@@ -79,6 +80,17 @@ function HeroStatItem({ idx }: { idx: number }) {
   );
 }
 
+const serviceHref: Record<string, string> = {
+  'svc-1': '/services/custom-software',
+  'svc-2': '/services/website-design',
+  'svc-9': '/services/workflow-automation',
+  'svc-10': '/services/ai-assistants',
+  'svc-6': '/services/booking-and-ordering',
+  'svc-7': '/services/crm-and-follow-up',
+  'svc-4': '/services/automated-reviews',
+  'svc-3': '/services/seo',
+};
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
@@ -92,8 +104,8 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="Waterloo Web Design, SEO & Custom Software | Automation God"
-        description="Websites, SEO, custom software and automation for businesses in Waterloo, Kitchener and across Ontario. All services free for your first 3 months."
+        title="Web, Software & AI Automation in Waterloo | Automation God"
+        description="Websites, custom software, workflow automation and AI assistants for businesses in Waterloo and across Ontario. All services free for 3 months."
         path="/"
       />
 
@@ -109,12 +121,12 @@ export default function HomePage() {
             <div className="max-w-4xl">
               <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: 'easeOut' as const }} className="flex items-center gap-3 mb-8">
                 <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">Waterloo, Ontario</span>
+                <h1 className="text-xs font-mono tracking-widest text-primary uppercase">Web Design, Custom Software &amp; AI Automation in Waterloo, Ontario</h1>
               </motion.div>
 
-              <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }} className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl break-words font-black leading-[0.95] tracking-tight text-white mb-4">
+              <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }} className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl break-words font-black leading-[0.95] tracking-tight text-white mb-4">
                 {home.hero.headline}
-              </motion.h1>
+              </motion.p>
               <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' as const }} className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl break-words font-black leading-[0.95] tracking-tight text-primary mb-8">
                 {home.hero.headlineAccent}
               </motion.p>
@@ -167,7 +179,7 @@ export default function HomePage() {
                   <div className="w-10 h-10 rounded border border-primary/30 flex items-center justify-center mb-6">
                     <div className="w-3 h-3 rounded-sm bg-primary" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-white mb-3 tracking-tight">{svc.title}</h3>
+                  <h3 className="font-heading text-2xl font-bold text-white mb-3 tracking-tight"><Link to={serviceHref[svc.id] ?? "/services"} className="after:absolute after:inset-0">{svc.title}</Link></h3>
                   <p className="text-[hsl(var(--muted-foreground))] text-base leading-relaxed">{svc.outcome}</p>
                 </motion.div>
               ))}
@@ -178,7 +190,7 @@ export default function HomePage() {
                   <div className="w-8 h-8 rounded border border-primary/30 flex items-center justify-center mb-4">
                     <div className="w-2 h-2 rounded-sm bg-primary" />
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-white mb-2 tracking-tight">{svc.title}</h3>
+                  <h3 className="font-heading text-lg font-bold text-white mb-2 tracking-tight"><Link to={serviceHref[svc.id] ?? "/services"} className="after:absolute after:inset-0">{svc.title}</Link></h3>
                   <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.outcome}</p>
                 </motion.div>
               ))}
@@ -189,7 +201,7 @@ export default function HomePage() {
                   <div className="w-9 h-9 rounded border border-primary/30 flex items-center justify-center mb-5">
                     <div className="w-2.5 h-2.5 rounded-sm bg-primary" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold text-white mb-2 tracking-tight">{svc.title}</h3>
+                  <h3 className="font-heading text-xl font-bold text-white mb-2 tracking-tight"><Link to={serviceHref[svc.id] ?? "/services"} className="after:absolute after:inset-0">{svc.title}</Link></h3>
                   <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.outcome}</p>
                 </motion.div>
               ))}
@@ -226,6 +238,10 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <CyanDivider />
+
+        <ServiceArea />
 
         <CyanDivider />
 

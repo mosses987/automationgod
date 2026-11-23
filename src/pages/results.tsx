@@ -43,6 +43,7 @@ export default function ResultsPage() {
         title="Projects: Websites & Software We've Built | Automation God"
         description="Websites and software built by Automation God in Waterloo, Ontario, including a contractor website for SRGC Developments and a logistics data app."
         path="/projects"
+        crumbs={[{ name: 'Projects', path: '/projects' }]}
         jsonLd={[
           {
             '@type': 'ItemList',
@@ -147,6 +148,37 @@ export default function ResultsPage() {
               );
             })}
           </motion.div>
+        </section>
+
+        {/* ── Project details ── */}
+        <section className="pb-12 md:pb-16 px-6">
+          <div className="max-w-3xl mx-auto flex flex-col gap-8 text-[hsl(var(--muted-foreground))] leading-relaxed">
+            <div>
+              <h2 className="font-heading text-xl md:text-2xl font-black text-white mb-2">SRGC Developments: contractor website</h2>
+              <p>
+                SRGC Developments is an Ontario exterior finishing contractor working on commercial and residential
+                buildings, covering EIFS, stucco, coatings, masonry, siding, drywall, renovations, tiling and demolition.
+                We designed and built their website with a page for each trade, a project gallery organized by city, a
+                detailed quote request form and click-to-call buttons for visitors on their phones.
+              </p>
+              <p className="mt-2 text-sm">
+                Services: <Link to="/services/website-design" className="text-primary hover:underline">Website Design &amp; Build</Link>
+              </p>
+            </div>
+            <div>
+              <h2 className="font-heading text-xl md:text-2xl font-black text-white mb-2">FreightFlow: logistics data app</h2>
+              <p>
+                FreightFlow is a data management app for logistics companies that outgrow spreadsheets. Teams import
+                Excel and CSV files, map and validate the columns, then search, filter, edit and export records in one
+                place, with an activity log of every change. New datasets and columns can be added without new code.
+              </p>
+              <p className="mt-2 text-sm">
+                Services: <Link to="/services/custom-software" className="text-primary hover:underline">Custom Software</Link>
+                {' · '}
+                <Link to="/services/workflow-automation" className="text-primary hover:underline">Workflow Automation</Link>
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* ── CTA ── */}
