@@ -127,7 +127,6 @@ export default function SectorsPage() {
               Don't see your industry? We work with all kinds of businesses.{' '}
               <Link to="/book" className="text-primary hover:underline">Book a free call</Link> and tell us what you need.
             </p>
-            <p className="text-xs text-[hsl(var(--muted-foreground))]">Photos via Unsplash.</p>
           </div>
         </section>
 

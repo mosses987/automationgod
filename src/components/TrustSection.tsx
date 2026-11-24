@@ -64,7 +64,6 @@ export default function TrustSection() {
         <p className="mt-6 text-center text-sm">
           <Link to="/sectors" className="text-primary hover:underline underline-offset-4">See all 85 industries we serve →</Link>
         </p>
-        <p className="mt-2 text-center text-xs text-[hsl(var(--muted-foreground))]">Photos via Unsplash.</p>
       </div>
     </section>
   );

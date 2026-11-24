@@ -190,7 +190,6 @@ export default function SectorDetailPage({ slug }: { slug: string }) {
                 See all industries <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </p>
-            <p className="mt-6 text-xs text-[hsl(var(--muted-foreground))]">Photos via Unsplash.</p>
           </div>
         </section>
       </main>
