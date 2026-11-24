@@ -11,6 +11,9 @@ import BookPage from './pages/book';
 import ContactPage from './pages/contact';
 import ServiceDetailPage from './pages/service-detail';
 import PrivacyPage from './pages/privacy';
+import SectorsPage from './pages/sectors';
+import SectorDetailPage from './pages/sector-detail';
+import { sectorSlugs } from './lib/sector-slugs';
 
 const NotFoundPage = ProdNotFoundPage;
 
@@ -59,6 +62,14 @@ export const routes: RouteObject[] = [
     path: '/services/seo',
     element: <ServiceDetailPage slug="seo" />,
   },
+  ...sectorSlugs.map((slug) => ({
+    path: `/sectors/${slug}`,
+    element: <SectorDetailPage slug={slug} />,
+  })),
+  {
+    path: '/sectors',
+    element: <SectorsPage />,
+  },
   {
     path: '/privacy',
     element: <PrivacyPage />,
@@ -87,6 +98,6 @@ export const routes: RouteObject[] = [
 ];
 
 // Types for type-safe navigation
-export type Path = '/' | '/services' | `/services/${string}` | '/contact' | '/book' | '/projects' | '/privacy';
+export type Path = '/' | '/services' | `/services/${string}` | '/contact' | '/book' | '/projects' | '/sectors' | `/sectors/${string}` | '/privacy';
 
 export type Params = Record<string, string | undefined>;

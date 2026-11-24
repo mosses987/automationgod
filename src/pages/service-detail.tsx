@@ -4,7 +4,8 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { services, home } from 'virtual:content';
 import Seo, { SITE_URL } from '@/components/Seo';
 import ServiceArea from '@/components/ServiceArea';
-import { serviceSeo, serviceSeoBySlug } from '@/lib/service-seo';
+import { serviceSeo, serviceSeoBySlug, serviceFaqs } from '@/lib/service-seo';
+import { serviceImages } from '@/lib/service-images';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -21,6 +22,7 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
   if (!seo || !svc) return null;
 
   const path = `/services/${slug}`;
+  const faqs = serviceFaqs[slug] ?? [];
   const related = serviceSeo.filter((s) => s.slug !== slug).slice(0, 4);
   const titleFor = (s: string) => services.services.find((x) => x.slug === s)?.title ?? s;
 
@@ -51,6 +53,15 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
               priceCurrency: 'CAD',
             },
           },
+          ...(faqs.length
+            ? [
+                {
+                  '@type': 'FAQPage',
+                  '@id': `${SITE_URL}${path}#faq`,
+                  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+                },
+              ]
+            : []),
         ]}
       />
 
@@ -90,10 +101,20 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
         <section className="py-12 md:py-16 bg-[hsl(var(--secondary))]">
           <div className="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-8 md:gap-12">
             <div>
+              {serviceImages[slug] && (
+                <img
+                  src={serviceImages[slug].src}
+                  alt={serviceImages[slug].alt}
+                  width={900}
+                  height={600}
+                  loading="lazy"
+                  className="mb-6 aspect-[3/2] w-full rounded-xl border border-[hsl(var(--border))] object-cover"
+                />
+              )}
               <h2 className="font-heading text-2xl md:text-3xl font-black text-white tracking-tight mb-4">{svc.tagline}</h2>
               <p className="text-[hsl(var(--muted-foreground))] leading-relaxed mb-6">{svc.description}</p>
               <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
-                <p className="text-xs font-mono tracking-widest text-primary/80 uppercase">What you get</p>
+                <p className="text-xs font-mono tracking-widest text-gold uppercase">What you get</p>
                 <p className="text-white font-semibold mt-1">{svc.outcome}</p>
               </div>
             </div>
@@ -120,7 +141,7 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
             <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {home.tools.items.map((step) => (
                 <li key={step.id} className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
-                  <span className="text-xs font-mono tracking-widest text-primary uppercase">{step.tag}</span>
+                  <span className="text-xs font-mono tracking-widest text-gold uppercase">{step.tag}</span>
                   <h3 className="font-heading text-lg font-bold text-white mt-2 mb-2">{step.name}</h3>
                   <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">{step.description}</p>
                 </li>
@@ -132,6 +153,27 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
             </p>
           </div>
         </section>
+
+        <CyanDivider />
+
+        {faqs.length > 0 && (
+          <section className="py-12 md:py-16">
+            <div className="container mx-auto px-6 max-w-3xl">
+              <h2 className="font-heading text-2xl md:text-4xl font-black text-white tracking-tight mb-6">{svc.title}: Common Questions</h2>
+              <div className="flex flex-col gap-3">
+                {faqs.map((f) => (
+                  <details key={f.q} className="group rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] open:border-primary/50">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-white [&::-webkit-details-marker]:hidden">
+                      <h3 className="text-base">{f.q}</h3>
+                      <span aria-hidden="true" className="shrink-0 text-2xl leading-none text-primary transition-transform group-open:rotate-45">+</span>
+                    </summary>
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <CyanDivider />
 

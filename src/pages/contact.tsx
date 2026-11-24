@@ -74,7 +74,7 @@ export default function ContactPage() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="text-sm font-medium tracking-widest text-primary uppercase mb-4"
+              className="text-sm font-medium tracking-widest text-gold uppercase mb-4"
             >
               {contact.hero.eyebrow}
             </motion.p>

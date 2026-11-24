@@ -7,9 +7,9 @@ export default function ServiceArea() {
     <section className="py-12 md:py-16 bg-[hsl(var(--background))]">
       <div className="container mx-auto px-6 max-w-4xl text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="h-px w-10 bg-primary" />
-          <span className="text-xs font-mono tracking-widest text-primary uppercase">Service Area</span>
-          <div className="h-px w-10 bg-primary" />
+          <div className="h-px w-10 bg-gold" />
+          <span className="text-xs font-mono tracking-widest text-gold uppercase">Service Area</span>
+          <div className="h-px w-10 bg-gold" />
         </div>
         <h2 className="font-heading text-3xl md:text-4xl font-black text-white tracking-tight mb-4">
           Serving Waterloo and All of Ontario

@@ -77,7 +77,7 @@ export default function ResultsPage() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="text-sm font-medium tracking-widest text-primary uppercase mb-4"
+              className="text-sm font-medium tracking-widest text-gold uppercase mb-4"
             >
               {results.hero.eyebrow}
             </motion.p>

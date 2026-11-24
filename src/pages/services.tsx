@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { Zap, Map, Globe, Search, Code, Star, CalendarCheck, Users, ShieldCheck, Workflow, Bot, CheckCircle2 } from 'lucide-react';
 import { services } from 'virtual:content';
+import { serviceImages } from '@/lib/service-images';
+import TrustSection from '@/components/TrustSection';
 
 const iconMap: Record<string, React.ReactNode> = {
   zap: <Zap className="h-6 w-6 text-primary" />,
@@ -126,8 +128,8 @@ export default function ServicesPage() {
           <div className="relative container mx-auto px-6 max-w-4xl">
             <motion.div initial="hidden" animate="visible" className="flex flex-col gap-6">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3">
-                <div className="h-px w-10 bg-primary" />
-                <h1 className="text-xs font-mono tracking-widest text-primary uppercase">Web Design, Software &amp; AI Automation Services in Ontario</h1>
+                <div className="h-px w-10 bg-gold" />
+                <h1 className="text-xs font-mono tracking-widest text-gold uppercase">Web Design, Software &amp; AI Automation Services in Ontario</h1>
               </motion.div>
               <motion.p variants={fadeUp} custom={1} className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl break-words font-black text-white tracking-tight leading-[0.95]">
                 {services.hero.headline}
@@ -159,7 +161,21 @@ export default function ServicesPage() {
                 >
                   <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_1.3fr] gap-0">
+                    {/* Photo */}
+                    {serviceImages[svc.slug] && (
+                      <div className="relative h-48 sm:h-56 lg:h-auto lg:min-h-full overflow-hidden border-b lg:border-b-0 lg:border-r border-[hsl(var(--border))]">
+                        <img
+                          src={serviceImages[svc.slug].src}
+                          alt={serviceImages[svc.slug].alt}
+                          width={900}
+                          height={600}
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                    )}
+
                     {/* Left: overview */}
                     <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-[hsl(var(--border))] flex flex-col gap-5">
                       <div className="w-12 h-12 rounded-lg border border-primary/30 flex items-center justify-center bg-primary/5">
@@ -171,7 +187,7 @@ export default function ServicesPage() {
                         <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.description}</p>
                       </div>
                       <div className="mt-auto pt-4 border-t border-[hsl(var(--border))]">
-                        <span className="text-xs font-mono tracking-widest text-primary/70 uppercase">What you get</span>
+                        <span className="text-xs font-mono tracking-widest text-gold uppercase">What you get</span>
                         <p className="text-white font-semibold text-sm mt-1">{svc.outcome}</p>
                       </div>
                     </div>
@@ -215,13 +231,17 @@ export default function ServicesPage() {
 
         <CyanDivider />
 
+        <TrustSection />
+
+        <CyanDivider />
+
         {/* ── PRICING ──────────────────────────────────────────────────────── */}
         <section className="py-12 md:py-16 bg-[hsl(var(--secondary))]">
           <div className="container mx-auto px-6">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8 md:mb-12">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">{services.pricing.label}</span>
+                <div className="h-px w-10 bg-gold" />
+                <span className="text-xs font-mono tracking-widest text-gold uppercase">{services.pricing.label}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
                 {services.pricing.headline}
@@ -251,8 +271,8 @@ export default function ServicesPage() {
                   )}
                   {tier.highlighted && (
                     <div className="absolute top-4 right-4">
-                      <span className="text-xs font-mono tracking-widest text-[hsl(var(--background))] bg-primary rounded px-2 py-1 uppercase font-bold">
-                        Popular
+                      <span className="text-xs font-mono tracking-widest text-[hsl(var(--background))] bg-gold rounded px-2 py-1 uppercase font-bold">
+                        Free Offer
                       </span>
                     </div>
                   )}
@@ -264,7 +284,7 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="flex items-end gap-2">
-                      <span className={['font-heading text-4xl font-black tracking-tight', tier.highlighted ? 'text-primary' : 'text-white'].join(' ')}>
+                      <span className={['font-heading text-4xl font-black tracking-tight', tier.highlighted ? 'text-gold' : 'text-white'].join(' ')}>
                         {tier.price}
                       </span>
                       <span className="text-xs text-[hsl(var(--muted-foreground))] font-mono mb-1.5">/ {tier.period}</span>
@@ -306,9 +326,9 @@ export default function ServicesPage() {
           <div className="container mx-auto px-6 max-w-3xl">
             <div className="mb-8 md:mb-10 text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">FAQ</span>
-                <div className="h-px w-10 bg-primary" />
+                <div className="h-px w-10 bg-gold" />
+                <span className="text-xs font-mono tracking-widest text-gold uppercase">FAQ</span>
+                <div className="h-px w-10 bg-gold" />
               </div>
               <h2 className="font-heading text-3xl md:text-5xl font-black text-white tracking-tight">
                 Frequently Asked Questions

@@ -16,6 +16,8 @@
  * - `changefreq` and `lastmod`.
  */
 
+import { sectorSlugs } from "./sector-slugs";
+
 export interface SeoRoute {
   path: string;
   changefreq?:
@@ -42,6 +44,8 @@ export const seoRoutes: SeoRoute[] = [
   { path: "/services/automated-reviews", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
   { path: "/services/website-care-plans", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
   { path: "/services/seo", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  { path: "/sectors", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
+  ...sectorSlugs.map((slug): SeoRoute => ({ path: `/sectors/${slug}`, changefreq: "monthly", priority: 0.6, lastmod: "2026-11-23" })),
   { path: "/projects", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
   { path: "/book", changefreq: "monthly", priority: 0.8, lastmod: "2026-11-23" },
   { path: "/contact", changefreq: "monthly", priority: 0.7, lastmod: "2026-11-23" },

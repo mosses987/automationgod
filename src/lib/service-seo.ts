@@ -111,3 +111,133 @@ export const ontarioCities = [
   'London',
   'Ottawa',
 ];
+
+/** Visible FAQs on each service page (also sent as FAQPage structured data). */
+export const serviceFaqs: Record<string, { q: string; a: string }[]> = {
+  "website-design": [
+    {
+      "q": "How long does it take to build a website?",
+      "a": "It depends on the number of pages and features. After a free discovery call we agree on a clear scope and timeline in writing before any work begins, so you know exactly when your site will be ready."
+    },
+    {
+      "q": "Will my website work on phones and show up on Google?",
+      "a": "Yes. Every site is built mobile-first, loads quickly and includes on-page SEO basics such as titles, descriptions, structured data and a sitemap, so Google can understand and index it."
+    },
+    {
+      "q": "Can I update the website myself later?",
+      "a": "Yes. We can set up simple editing for text and photos, or handle changes for you through a website care plan if you would rather not touch it."
+    }
+  ],
+  "custom-software": [
+    {
+      "q": "What kind of custom software do you build?",
+      "a": "Internal tools, dashboards, customer portals, booking and scheduling systems, and integrations that connect the apps you already use. If a spreadsheet or manual process is slowing you down, it is usually a good candidate."
+    },
+    {
+      "q": "Is custom software only for big companies?",
+      "a": "No. Many small businesses get the most value, because a simple tool built around their process can save hours every week. We start small, prove the value, then grow it."
+    },
+    {
+      "q": "How do you make sure it fits my business?",
+      "a": "We start by mapping how your work actually flows, agree a clear scope, then build in stages and review it with you along the way, so the result matches how you work."
+    }
+  ],
+  "workflow-automation": [
+    {
+      "q": "What tasks can be automated?",
+      "a": "Common examples are follow-up emails and texts, data entry between apps, quote and invoice creation, appointment reminders, scheduled reports and routing new leads to the right person."
+    },
+    {
+      "q": "Do I need to change the tools I already use?",
+      "a": "Usually not. We connect the apps you already have, such as your email, calendar, spreadsheets, accounting or CRM, so work flows between them automatically."
+    },
+    {
+      "q": "What if an automation breaks?",
+      "a": "We set up alerts for failures and stay available after launch to fix and improve what we built, so problems are caught early."
+    }
+  ],
+  "ai-assistants": [
+    {
+      "q": "What can an AI assistant do for my business?",
+      "a": "It can answer common questions about your services, hours and pricing, capture contact details, book appointments and help your team find information or draft emails, all trained on your own business information."
+    },
+    {
+      "q": "Will the chatbot give wrong answers?",
+      "a": "We limit it to your approved information and set clear rules for what it should not answer, such as legal or medical advice, so it hands those questions to you instead of guessing."
+    },
+    {
+      "q": "Can it work on my website and messaging apps?",
+      "a": "Yes. The assistant can run on your website and can be connected to other channels where your customers already reach you."
+    }
+  ],
+  "booking-and-ordering": [
+    {
+      "q": "Can customers pay or leave a deposit when they book?",
+      "a": "Yes. Booking and ordering can take payments or deposits online, which helps reduce no-shows and last-minute cancellations."
+    },
+    {
+      "q": "Will I get reminders and confirmations?",
+      "a": "Customers get automatic confirmations and reminders by email or text, and you see every booking or order in one calendar or list."
+    },
+    {
+      "q": "Does it work with my existing website?",
+      "a": "Yes. We can add booking or ordering to your current website or build it into a new one."
+    }
+  ],
+  "crm-and-follow-up": [
+    {
+      "q": "Do I need a CRM for a small business?",
+      "a": "If enquiries live in your inbox, phone and notes, a simple CRM keeps every lead and customer in one place so nobody is forgotten. We keep it as simple as your business needs."
+    },
+    {
+      "q": "What follow-ups can be automated?",
+      "a": "Replies to new enquiries, reminders on open quotes, thank-you messages after a job, rebooking reminders and win-back messages for past customers."
+    },
+    {
+      "q": "Can it connect to my email and website forms?",
+      "a": "Yes. Website forms, email and booking tools can feed straight into your CRM so new leads appear automatically."
+    }
+  ],
+  "automated-reviews": [
+    {
+      "q": "Is it allowed to ask customers for Google reviews?",
+      "a": "Yes, asking every customer for an honest review is allowed. We do not offer incentives or stop unhappy customers from posting, which keeps you within Google's review rules."
+    },
+    {
+      "q": "How do NFC and QR review stands work?",
+      "a": "Customers tap their phone on a small NFC stand or scan a QR code at your counter, and it opens your Google review page directly. No searching or typing needed."
+    },
+    {
+      "q": "Can replies to reviews be automated?",
+      "a": "Yes. New reviews get a reply drafted in your tone that you can approve, or send automatically for simple positive reviews."
+    }
+  ],
+  "website-care-plans": [
+    {
+      "q": "What is included in a website care plan?",
+      "a": "Hosting and domain management, security updates, backups, uptime monitoring, content changes and direct support when something breaks, for one monthly fee."
+    },
+    {
+      "q": "Can you look after a website you did not build?",
+      "a": "Often yes. We review the site first and tell you honestly whether we can maintain it as it is or recommend improvements."
+    },
+    {
+      "q": "What happens if my site goes down?",
+      "a": "Uptime monitoring alerts us, and we work to restore the site and fix the cause as part of the plan."
+    }
+  ],
+  "seo": [
+    {
+      "q": "How long does SEO take to show results?",
+      "a": "Technical fixes and Google Business Profile improvements can help within weeks, while rankings for competitive searches usually build over several months. We report progress every month."
+    },
+    {
+      "q": "Do you help with Google Business Profile and Google Maps?",
+      "a": "Yes. We set up and optimize your Google Business Profile, which is often the biggest factor for appearing in local map results."
+    },
+    {
+      "q": "Do you also help with AI search like ChatGPT?",
+      "a": "Yes. Clear service pages, structured data and an llms.txt file make it easier for AI assistants to understand and recommend your business."
+    }
+  ]
+};

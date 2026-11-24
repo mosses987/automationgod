@@ -7,7 +7,9 @@
 @layer base {
   :root {
     /* Core Colors */
-    --background: 210 33.333% 4.706%;
+    --background: 222 40% 5.5%;
+    /* Warm accent taken from the logo's rays */
+    --gold: 38 90% 61%;
     --foreground: 0 0% 96.078%;
     --card: 216.364 55.932% 11.569%;
     --card-foreground: 0 0% 100%;
@@ -241,4 +243,9 @@
 /* Unless told otherwise, keep it for smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
 }

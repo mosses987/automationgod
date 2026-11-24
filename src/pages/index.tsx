@@ -4,6 +4,9 @@ import { motion, useInView } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { home } from 'virtual:content';
 import ServiceArea from '@/components/ServiceArea';
+import SectorCarousel from '@/components/SectorCarousel';
+import TrustSection from '@/components/TrustSection';
+import { serviceImages } from '@/lib/service-images';
 
 // ── Animated counter hook ─────────────────────────────────────────────────────
 function useCounter(target: string, inView: boolean) {
@@ -70,7 +73,7 @@ function HeroStatItem({ idx }: { idx: number }) {
       transition={{ duration: 0.5, delay: 0.6 + idx * 0.1, ease: 'easeOut' as const }}
       className="flex flex-col items-center gap-1"
     >
-      <span className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary tracking-tight text-center">
+      <span className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-gold tracking-tight text-center">
         {display}
       </span>
       <span className="text-[10px] sm:text-xs text-center text-[hsl(var(--muted-foreground))] tracking-wider sm:tracking-widest uppercase font-mono">
@@ -90,6 +93,24 @@ const serviceHref: Record<string, string> = {
   'svc-4': '/services/automated-reviews',
   'svc-3': '/services/seo',
 };
+
+function ServicePhoto({ id, className }: { id: string; className: string }) {
+  const slug = (serviceHref[id] ?? '').split('/').pop() ?? '';
+  const img = serviceImages[slug];
+  if (!img) return null;
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <img
+        src={img.src}
+        alt={img.alt}
+        width={900}
+        height={600}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    </div>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -120,8 +141,8 @@ export default function HomePage() {
           <div className="relative container mx-auto px-6 pt-12 md:pt-16 pb-14 md:pb-20">
             <div className="max-w-4xl">
               <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: 'easeOut' as const }} className="flex items-center gap-3 mb-8">
-                <div className="h-px w-10 bg-primary" />
-                <h1 className="text-xs font-mono tracking-widest text-primary uppercase">Web Design, Custom Software &amp; AI Automation in Waterloo, Ontario</h1>
+                <div className="h-px w-10 bg-gold" />
+                <h1 className="text-xs font-mono tracking-widest text-gold uppercase">Web Design, Custom Software &amp; AI Automation in Waterloo, Ontario</h1>
               </motion.div>
 
               <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }} className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl break-words font-black leading-[0.95] tracking-tight text-white mb-4">
@@ -161,8 +182,8 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8 md:mb-12">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">{home.services.label}</span>
+                <div className="h-px w-10 bg-gold" />
+                <span className="text-xs font-mono tracking-widest text-gold uppercase">{home.services.label}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
                 {home.services.headline}
@@ -176,9 +197,7 @@ export default function HomePage() {
               {home.services.items.filter(s => s.size === 'large').map((svc, i) => (
                 <motion.div key={svc.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="md:col-span-2 group relative p-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
                   <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="w-10 h-10 rounded border border-primary/30 flex items-center justify-center mb-6">
-                    <div className="w-3 h-3 rounded-sm bg-primary" />
-                  </div>
+                  <ServicePhoto id={svc.id} className="-mx-8 -mt-8 mb-6 h-48 md:h-56" />
                   <h3 className="font-heading text-2xl font-bold text-white mb-3 tracking-tight"><Link to={serviceHref[svc.id] ?? "/services"} className="after:absolute after:inset-0">{svc.title}</Link></h3>
                   <p className="text-[hsl(var(--muted-foreground))] text-base leading-relaxed">{svc.outcome}</p>
                 </motion.div>
@@ -187,9 +206,7 @@ export default function HomePage() {
               {home.services.items.filter(s => s.size === 'small').map((svc, i) => (
                 <motion.div key={svc.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: 'easeOut' as const }} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="group relative p-6 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] overflow-hidden cursor-pointer transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_hsl(var(--cyan-glow)/0.15)]">
                   <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="w-8 h-8 rounded border border-primary/30 flex items-center justify-center mb-4">
-                    <div className="w-2 h-2 rounded-sm bg-primary" />
-                  </div>
+                  <ServicePhoto id={svc.id} className="-mx-6 -mt-6 mb-4 h-36" />
                   <h3 className="font-heading text-lg font-bold text-white mb-2 tracking-tight"><Link to={serviceHref[svc.id] ?? "/services"} className="after:absolute after:inset-0">{svc.title}</Link></h3>
                   <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">{svc.outcome}</p>
                 </motion.div>
@@ -211,13 +228,21 @@ export default function HomePage() {
 
         <CyanDivider />
 
+        <SectorCarousel />
+
+        <CyanDivider />
+
+        <TrustSection />
+
+        <CyanDivider />
+
         {/* ── TOOLS ────────────────────────────────────────────────────────── */}
         <section className="py-12 md:py-16 bg-[hsl(var(--background))]">
           <div className="container mx-auto px-6">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8 md:mb-12">
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-mono tracking-widest text-primary uppercase">{home.tools.label}</span>
+                <div className="h-px w-10 bg-gold" />
+                <span className="text-xs font-mono tracking-widest text-gold uppercase">{home.tools.label}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} custom={1} className="font-heading text-4xl md:text-5xl font-black text-white tracking-tight">
                 {home.tools.headline}

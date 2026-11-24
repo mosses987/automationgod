@@ -83,7 +83,7 @@ export default function BookPage() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="text-sm font-medium tracking-widest text-primary uppercase mb-4"
+              className="text-sm font-medium tracking-widest text-gold uppercase mb-4"
             >
               {book.hero.eyebrow}
             </motion.p>
@@ -117,7 +117,7 @@ export default function BookPage() {
           >
             {book.trust.map((t) => (
               <motion.div key={t.id} variants={fadeUp} className="text-center">
-                <div className="font-heading text-xl md:text-2xl font-black text-primary mb-1">
+                <div className="font-heading text-xl md:text-2xl font-black text-gold mb-1">
                   {t.stat}
                 </div>
                 <div className="text-xs text-[hsl(var(--muted-foreground))]">

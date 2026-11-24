@@ -5,6 +5,7 @@ export default function Footer() {
 
   const links = [
     { href: '/services', label: 'Services' },
+    { href: '/sectors', label: 'Sectors' },
     { href: '/projects', label: 'Projects' },
     { href: '/book', label: 'Book a Call' },
     { href: '/contact', label: 'Contact' },
@@ -41,9 +42,6 @@ export default function Footer() {
             <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
               Websites, custom software, workflow automation, AI assistants, reviews and SEO for your business. Based in Waterloo, serving all of Ontario.
             </p>
-            <span className="text-xs text-primary/60 tracking-widest uppercase font-mono">
-              Powered by AI
-            </span>
           </div>
 
           {/* Nav links */}
@@ -81,9 +79,6 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-[hsl(var(--border))] flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-[hsl(var(--muted-foreground))]">
             © {currentYear} Automation God — automationgod.ca
-          </p>
-          <p className="text-xs text-[hsl(var(--muted-foreground))]/50 font-mono tracking-widest uppercase">
-            System Online
           </p>
         </div>
       </div>
